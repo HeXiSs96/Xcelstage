@@ -16,11 +16,4 @@ Xcel est une plateforme web conçue pour aider les étudiants à trouver des sta
 - **Base de données :** MySQL
 - **Sécurité :** Sessions/Cookies PHP pour l'authentification, validation des entrées
 
-## 📊 Schéma de la Base de Données
-Voici le schéma de la base de données utilisée pour ce projet. Elle est structurée pour gérer les utilisateurs, les entreprises, les offres de stage et les candidatures. Vous trouverez ci-dessous une version simplifiée du schéma :
-
-
-## 📁 Structure du projet
-/Xcel │ ├── /Projet │ ├── /CSS # Contient tous les fichiers CSS │ ├── /JS # Contient tous les fichiers JavaScript │ ├── /Images # Contient toutes les images utilisées │ ├── /includes # Contient les fichiers PHP réutilisables (par ex. pour la connexion) │ ├── /templates # Contient les fichiers PHP pour l'interface utilisateur │ ├── index.php # Page d'accueil du site │ ├── login.php # Page de connexion │ └── ... # Autres pages PHP └── README.md # Ce fichier
-Le projet est structuré comme suit :
 
