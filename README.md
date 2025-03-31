@@ -1,45 +1,21 @@
-XcelStage - Plateforme de Recherche de Stage
-XcelStage est une plateforme web destinée à aider les étudiants à trouver des stages en entreprise. Elle permet la gestion des rôles, la recherche et la gestion des entreprises et des offres de stage, ainsi que le suivi des candidatures et des statistiques.
+# Xcel - Plateforme de Recherche de Stages 🎓🚀
 
-📌 Fonctionnalités principales
-🔐 Gestion des rôles : Administrateur, Pilote, Étudiant, Anonyme
+Xcel est une plateforme web conçue pour aider les étudiants à trouver des stages en entreprise. Elle offre une gestion efficace des offres de stages, des entreprises et des candidatures, avec un système de permissions basé sur les rôles.
 
-🏢 Gestion des entreprises : Ajout, modification, suppression et recherche d'entreprises
+## 📌 Fonctionnalités
+- 🔍 **Recherche et gestion des offres de stage**
+- 🏢 **Gestion des entreprises**
+- 📄 **Suivi des candidatures et statistiques**
+- 👤 **Gestion des utilisateurs et rôles (Administrateur, Pilote, Étudiant, Anonyme)**
+- 🔑 **Authentification sécurisée et gestion des droits d'accès**
+- 🛠️ **CRUD sécurisés avec protection contre les injections SQL**
 
-📄 Gestion des offres de stage : Création, édition, suppression et recherche d'offres
+## 🏗️ Technologies utilisées
+- **Frontend :** HTML, CSS (pur, sans framework), JavaScript
+- **Backend :** PHP, Apache
+- **Base de données :** MySQL
+- **Sécurité :** Sessions/Cookies PHP pour l'authentification, validation des entrées
 
-📩 Gestion des candidatures : Postulation, suivi et historique des candidatures
+## 📊 Schéma de la Base de Données
+Voici le schéma de la base de données utilisée pour ce projet. Elle est structurée pour gérer les utilisateurs, les entreprises, les offres de stage et les candidatures. Vous trouverez ci-dessous une version simplifiée du schéma :
 
-📊 Statistiques et suivi : Visualisation des données sur les stages et candidatures
-
-🛠️ Technologies utilisées
-Frontend : HTML, CSS pur, JavaScript
-
-Backend : PHP, Apache
-
-Base de données : MySQL
-
-Sécurité : CRUD sécurisés avec une couche d'abstraction pour éviter les injections SQL, authentification via sessions/cookies PHP
-
-🚀 Installation
-Prérequis
-Apache + PHP
-
-MySQL
-
-Étapes
-Clonez le dépôt :
-
-git clone https://github.com/votre-utilisateur/XcelStage.git
-Déplacez-vous dans le dossier du projet :
-
-cd XcelStage
-Configurez la base de données :
-
-Importez le fichier database.sql dans MySQL
-
-Mettez à jour les informations de connexion à la BDD dans config.php
-
-Démarrez Apache et MySQL
-
-Accédez à http://localhost/XcelStage
