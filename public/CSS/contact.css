@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap");
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #111; /* Fond sombre pour correspondre à la page d'accueil */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+}
+
+form {
+    padding: 30px;
+    background-color: #1c1c1c; /* Fond plus sombre pour le formulaire */
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+form h1 {
+    color: #2BAEF7; /* Couleur bleue pour correspondre à la page d'accueil */
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+form .separation {
+    width: 100%;
+    height: 1px;
+    background-color: #c9c9c9;
+}
+
+form .corps-formulaire {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+form .corps-formulaire .groupe {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+form .corps-formulaire .groupe input, form .corps-formulaire .groupe textarea {
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #c9c9c9;
+    outline-color: #2BAEF7; /* Couleur bleue pour le focus */
+    border-radius: 5px;
+    color: #fff;
+    background-color: #333; /* Fond sombre pour les champs */
+}
+
+form .corps-formulaire .groupe i {
+    position: absolute;
+    left: 10px;
+    top: 15px;
+    color: #2BAEF7;
+}
+
+form .corps-formulaire .groupe textarea {
+    resize: none;
+    height: 100px;
+}
+
+form .pied-formulaire button {
+    background-color: #2BAEF7; /* Bleu pour le bouton */
+    color: white;
+    font-size: 15px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+form .pied-formulaire button:hover {
+    transform: scale(1.05);
+}
+
+@media screen and (max-width: 920px) {
+    form .corps-formulaire .droite {
+        margin-left: 0px;
+    }
+}
