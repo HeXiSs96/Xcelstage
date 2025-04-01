@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>XcelStage - Contact</title>
-    <link rel="stylesheet" href="/Test2/CSS/contact.css" />
-    <link rel="icon" type="image/png" href="image/logo-png.png">
+    <link rel="stylesheet" href="/Xcelstage/public/CSS/contact.css" />
+    <link rel="icon" type="image/png" href="/Xcelstage/public/image/logo-png.png">
   </head>
   <body>
     <form method="POST" action="">

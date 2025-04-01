@@ -16,14 +16,27 @@ class Utilisateur {
 
     // Méthode pour récupérer les données de l'utilisateur à partir de son mail
     public function getUserByEmail($EmailU) {
-        $stmt = $this->pdo->prepare("SELECT Utilisateur.ID_Utilisateur, Utilisateur.NomU, Utilisateur.EmailU, Utilisateur.MdpU, Role.NomRole 
-    FROM Utilisateur
-    INNER JOIN Role ON Utilisateur.ID_Role = Role.ID_Role
-    WHERE Utilisateur.EmailU = ?");
+        $stmt = $this->pdo->prepare("SELECT * FROM Utilisateur WHERE EmailU = ?");
         $stmt->execute([$EmailU]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-   
+
+    public function getUserByNom($NomU) {
+        $stmt = $this->pdo->prepare("SELECT * FROM Utilisateur WHERE NomU = ?");
+        $stmt->execute([$EmailU]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function modifierUtilisateur($ID_Utilisateur, $NomU, $PrenomU, $DateNaissance, $MdpU, $EmailU, $Role){
+        $hashedPassword = password_hash($MdpU, PASSWORD_DEFAULT);
+        $requete = $this->pdo->prepare("UPDATE Utilisateur SET NomU = ?, PrenomU = ?, DateNaissance = ?, MdpU = ?, EmailU = ?, ID_Role = (Select ID_Role FROM Role WHERE NomRole=?) WHERE ID_Utilisateur = ?");
+        return $requete->execute([$NomU, $PrenomU, $DateNaissance, $hashedPassword, $EmailU, $Role, $ID_Utilisateur]);
+    }
+
+    public function supprimerUtilisateur($ID_Utilisateur){
+        $requete = $this->pdo->prepare("DELETE FROM Utilisateur WHERE ID_Utilisateur = ?");
+        return $requete->execute([$ID_Utilisateur]);
+    }
 }
 
 ?>

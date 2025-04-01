@@ -13,7 +13,7 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion de XcelStage</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="/Xcelstage/public/CSS/style.css">
 </head>
 <body>
     <header>

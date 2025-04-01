@@ -19,7 +19,17 @@ class Offre {
         $stmt->execute([$EmailU]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
-   
+
+    public function modifierOffre($TitreO, $DateDebut, $DateFin, $EtatOffre, $DescOffre, $RemunerationO, $EmailE){
+        $hashedPassword = password_hash($MdpU, PASSWORD_DEFAULT);
+        $requete = $this->pdo->prepare("UPDATE Offres SET TitreO, DateDebut, DateFin, EtatOffre, DescOffre, RemunerationO, ID_Entreprise");
+        return $requete->execute([$TitreO, $DateDebut, $DateFin, $EtatOffre, $DescOffre, $RemunerationO, $EmailE]);
+    }
+
+    public function supprimerUtilisateur($ID_Utilisateur){
+        $requete = $this->pdo->prepare("DELETE FROM Utilisateur WHERE ID_Utilisateur = ?");
+        return $requete->execute([$ID_Utilisateur]);
+    }
 }
 
 ?>

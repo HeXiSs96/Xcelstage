@@ -1,203 +1,127 @@
-/* Global Styles */
+/* Reset général */
 * {
-    padding: 0;
     margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    font-family: century;
 }
 
+/* Header */
 header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('http://localhost/xcelstage/public/image/back.jpg');
-    height: 100vh;
-    background-size: cover;
-    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 5%;
+    background-color: #000;
+    height: 80px;
+    width: 100%;
     position: relative;
 }
 
 /* Logo */
 .logo {
-    position: absolute;
-    top: 10px;      /* Positionné un peu en haut */
-    left: 20px;     /* Positionné à gauche pour qu'il soit visible sur tous les écrans */
-    z-index: 100;   /* Assure que le logo reste visible */
+    display: flex;
+    align-items: center;
 }
 
 .logo img {
-    width: 100px;  /* Ajuste la taille du logo */
-    opacity: 0.8;    /* Assure que le logo est complètement visible */
+    width: 5vh;
+    max-width: 100px;
     height: auto;
-    display: block;
+    opacity: 0.8;
 }
+
+/* Navigation */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+/* Liste des liens */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+}
+
+/* Liens de navigation */
+nav ul li a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+/* Quand le bouton devient blanc */
+nav ul li a:hover {
+    background-color: rgb(255, 255, 255);
+    color: black; /* Changement de couleur du texte */
+}
+
 
 /* Menu Burger */
 .burger {
     display: none;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    flex-direction: column;
     cursor: pointer;
-    z-index: 10;
+    z-index: 1000;
 }
 
 .burger div {
     width: 30px;
-    height: 5px;
+    height: 4px;
     background-color: white;
     margin: 5px;
 }
 
-/* Liste de navigation */
-ul {
-    list-style: none;
-    float: right;
-    display: flex;
-    margin-top: 20px;
-}
-
-ul li a {
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    text-transform: uppercase;
-    border: 1px solid transparent;
-    margin: 10px;
-    font-weight: 500;
-    transition: 0.6s ease;
-}
-
-ul li a:hover {
-    background: white;
-    color: black;
-}
-
-ul li.active a {
-    background: white;
-    color: black;
-}
-
-/* Contenu principal */
-.principale {
-    max-width: 144rem;
-}
-
-.titre {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.titre h1 {
-    color: white;
-    font-size: 70px;
-    text-align: center;
-}
-
-/* Boutons */
-.bouton {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.bouton a {
-    color: white;
-    text-decoration: none;
-    border: 1px solid white;
-    padding: 10px 20px;
-    font-size: 16px;
-}
-
-.btn {
-    transition: 0.6s ease;
-}
-
-.btn:hover {
-    background: white;
-    color: black;
-}
-
-/* Responsive Design */
-
-/* Écrans moyens (tablettes et petits laptops) */
-@media screen and (max-width: 1024px) {
-    .logo {
-        left: 5%;
-    }
-
-    .titre h1 {
-        font-size: 8vw;
-    }
-
-    .bouton {
-        top: 65%;
-    }
-
-    .bouton a {
-        padding: 8% 12%;
-        font-size: 4vw;
-    }
-}
-
-/* Écrans petits (mobiles) */
+/* Responsive */
 @media screen and (max-width: 768px) {
-    .principale {
+    /* Ajustement du conteneur */
+    nav {
+        position: absolute;
+        width: auto;
+        top: 80px;
+        right: 5%;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        text-align: center;
+        align-items: flex-end;
     }
 
-    .logo {
-        left: 0;
-        top: 10px;
-        position: relative;
-    }
-
-    .logo img {
-        width: 20%;
-    }
-
-    ul {
+    /* Conteneur du menu */
+    nav ul {
         display: none;
         flex-direction: column;
-        align-items: center;
-        width: 100%;
-        margin-top: 20px;
-    }
-
-    ul li {
-        width: 100%;
+        position: absolute;
+        top: 10px;
+        right: 0;
+        width: 200px;
+        background-color: #000;
+        padding: 15px 0;
+        border-radius: 10px;
         text-align: center;
-        margin-bottom: 10px;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
     }
 
-    ul li a {
-        padding: 10px;
-        font-size: 5vw;
-    }
-
-    /* Affiche le menu burger */
-    .burger {
-        display: block;
-    }
-
-    .burger.open + ul {
+    /* Activation du menu */
+    nav ul.active {
         display: flex;
     }
 
-    .bouton {
-        top: 70%;
-        flex-direction: column;
-        gap: 15px;
+    .burger {
+        display: flex;
     }
 
-    .bouton a {
-        padding: 12px 25px;
-        font-size: 5vw;
+    /* Ajustement des liens */
+    nav ul li {
+        width: 100%;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 12px;
+        font-size: 16px;
+        width: 100%;
     }
 }

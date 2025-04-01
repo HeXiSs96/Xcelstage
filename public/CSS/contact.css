@@ -14,7 +14,7 @@ body {
 
 form {
     padding: 30px;
-    background-color: #1c1c1c; /* Fond plus sombre pour le formulaire */
+    background-color: #f1f1f1; /* Fond plus sombre pour le formulaire */
     border-radius: 10px;
     width: 100%;
     max-width: 500px;
