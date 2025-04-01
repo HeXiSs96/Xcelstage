@@ -1,5 +1,10 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
+require_once '../models/Ville.php';
+require_once '../models/SecteurActivite.php';
 
 if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
     header("Location: /xcelstage/public/");
