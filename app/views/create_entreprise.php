@@ -17,7 +17,11 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
     } else {
         echo "Erreur : " . mysqli_error($conn);
     }
+} else {
+    $villes = getAllVilles();
+    $secteurs = getAllSecteurAs();
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -37,7 +41,12 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
         <label for="site">Site web:</label><br>
         <input type="text" id="site" name="site" required><br><br>
         <label for="ville">Ville:</label><br>
-        <input type="text" id="ville" name="ville" required><br><br>
+        <select name="ville" id="ville">
+        <option value="">Sélectionner une Ville</option>
+        <?php foreach ($villes as $ville): ?>
+            <option value="<?php echo $ville['NomV']; ?>"><?php echo htmlspecialchars($Ville['NomV']); ?></option>
+        <?php endforeach; ?>
+        </select>
         <label for="secteur">Secteur d'activité:</label><br>
         <input type="text" id="secteur" name="secteur" required><br><br>
         <input type="submit" value="Ajouter l'entreprise">
