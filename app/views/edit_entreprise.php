@@ -1,3 +1,8 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,42 +13,11 @@
     <link rel="stylesheet" href="style_offre.css">
 </head>
 <body>
-<?php
 
-         //connexion à la base de donnée
-          include_once "connexion.php";
-         //on récupère le id dans le lien
-          $id = $_GET['id'];
-          //requête pour afficher les infos d'un employé
-          $req = mysqli_query($con , "SELECT * FROM Employe WHERE id = $id");
-          $row = mysqli_fetch_assoc($req);
-
-
-       //vérifier que le bouton ajouter a bien été cliqué
-       if(isset($_POST['button'])){
-           //extraction des informations envoyé dans des variables par la methode POST
-           extract($_POST);
-           //verifier que tous les champs ont été remplis
-           if(isset($nom) && isset($prenom) && $age){
-               //requête de modification
-               $req = mysqli_query($con, "UPDATE employe SET nom = '$nom' , prenom = '$prenom' , age = '$age' WHERE id = $id");
-                if($req){//si la requête a été effectuée avec succès , on fait une redirection
-                    header("location: index_offre.php");
-                }else {//si non
-                    $message = "Employé non modifié";
-                }
-
-           }else {
-               //si non
-               $message = "Veuillez remplir tous les champs !";
-           }
-       }
-    
-    ?>
 
     <div class="form">
         <a href="index_offre.php" class="back_btn"><img src="images/arrow.png"> Retour</a>
-        <h2>Modifier l'employé : <?=$row['nom']?> </h2>
+        <h2>Modifier l'Entreprise : <?=$entreprise['NomE']?> </h2>
         <p class="erreur_message">
            <?php 
               if(isset($message)){
@@ -51,14 +25,34 @@
               }
            ?>
         </p>
-        <form action="" method="POST">
-            <label>Nom</label>
-            <input type="text" name="nom" value="<?=$row['nom']?>">
-            <label>Prénom</label>
-            <input type="text" name="prenom" value="<?=$row['prenom']?>">
-            <label>âge</label>
-            <input type="number" name="age" value="<?=$row['age']?>">
-            <input type="submit" value="Modifier" name="button">
+        <form action="../controllers/editEntreprise.php?id=<?=$entreprise['ID_Entreprise']?>" method="POST">
+        <label for="nom_entreprise">Nom de l'entreprise:</label><br>
+        <input type="text" id="nom_entreprise" name="nom_entreprise" value="<?= htmlspecialchars($entreprise['NomE']) ?>" required><br><br>
+        <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" value="<?= htmlspecialchars($entreprise['EmailE']) ?>" required><br><br>
+        <label for="tel">Telephone:</label><br>
+        <input type="text" id="tel" name="tel" value="<?= htmlspecialchars($entreprise['TelephoneE']) ?>" required><br><br>
+        <label for="site">Site web:</label><br>
+        <input type="text" id="site" name="site" value="<?= htmlspecialchars($entreprise['SiteWebE']) ?>" required><br><br>
+        <label for="ville">Ville:</label><br>
+        <select name="ville" id="ville">
+            <?php foreach ($villes as $ville): ?>
+                <option value="<?= htmlspecialchars($ville['NomV']); ?>" 
+                    <?= (htmlspecialchars($ville['NomV']) == $villeE) ? 'selected' : ''; ?>>
+                    <?= htmlspecialchars($ville['NomV']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <label for="secteur">Secteur d'activité:</label><br>
+        <select name="secteur" id="secteur">
+            <?php foreach ($secteurs as $secteur): ?>
+                <option value="<?= htmlspecialchars($secteur['NomS']) ?>"
+                    <?= (htmlspecialchars($secteur['NomS']) == $secteurE) ? 'selected' : ''; ?>>
+                    <?= htmlspecialchars($secteur['NomS']); ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <input type="submit" value="Modifier l'entreprise">
         </form>
     </div>
 </body>

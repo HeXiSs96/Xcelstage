@@ -6,6 +6,10 @@ session_start();
 
 require_once '/var/www/html/Xcelstage/config/database.php';
 require_once '../models/Entreprise.php';
+require_once '../models/SecteurActivite.php';
+require_once '../models/Ville.php';
+require_once '../models/Appartenir.php';
+require_once '../models/Implanter.php';
 
 if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
     header("Location: /Xcelstage/public/");
@@ -14,6 +18,9 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
 
 } else {
     $entrepriseModel = new Entreprise($pdo);
+    $appartenirModel = new Appartenir($pdo);
+    $secteurModel = new SecteurActivite($pdo);
+    $implanterModel = new Implanter($pdo);
     $villeModel = new Ville($pdo);
 
     $entreprises = $entrepriseModel->getAllEntreprises();
@@ -32,7 +39,7 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
 </head>
 <body>
     <div class="container">
-        <a href="create_entreprise.php" class="Btn_add"> <img src="images/plus.png"> Ajouter</a>
+        <a href="create_entreprise.php" class="Btn_add"> <img src="/Xcelstage/public/image/plus.png"> Ajouter</a>
 
         <input type="text" id="search" placeholder="Rechercher une entreprise..." onkeyup="searchTable()">
 
@@ -57,20 +64,29 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
-            <tr>
+            <br/>
             <?php foreach ($entreprises as $entreprise): ?>
-                <td><?=$row['NomE']?></td>
-                <td><?=$villeModel->getNomVillebyID($row['ID_SecteurA'])?></td>
-                <td><?=$row['Telephone']?></td>
-                <td><?=$row['email']?></td>
-                <td><a href="<?=$row['site_web']?>" target="_blank">Visiter</a></td>
-                <td><?=$villeModel->getNomVillebyID($row['ID_Ville'])?></td>
-        <?php endforeach; ?>
-        <td><a href="view_entreprise.php?id=<?=$row['id']?>"><button>Consulter</button></a></td>
-                <td><a href="edit_entreprise.php?id=<?=$row['id']?>"><img src="images/pen.png"></a></td>
-                <td><a href="delete_entreprise.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');"><img src="images/trash.png"></a></td>
-            </tr>
+            <tr>
             
+                <?php
+                //var_dump($entreprise);
+                $appartenir = $appartenirModel->getbyID_Entreprise($entreprise['ID_Entreprise']);
+                $secteur = $secteurModel->getSecteurAbyID($appartenir);
+                $implanter = $implanterModel->getbyID_Entreprise($entreprise['ID_Entreprise']);
+                $ville = $villeModel->getNomVillebyID($implanter);
+                ?>
+                <td><?=$entreprise['NomE']?></td>
+                <td><?=$secteur?></td>
+                <td><?=$entreprise['TelephoneE']?></td>
+                <td><?=$entreprise['EmailE']?></td>
+                <td><a href="<?=$entreprise['SiteWebE']?>" target="_blank">Visiter</a></td>
+                <td><?=$ville?></td>
+                <td><a href="../controllers/EntrepriseDetail_Controller.php?id=<?=$entreprise['ID_Entreprise']?>"><button>Consulter</button></a></td>
+                <td><a href="../controllers/editEntreprise.php?id=<?=$entreprise['ID_Entreprise']?>"><img src="/Xcelstage/public/image/pen.png"></a></td>
+                <td><a href="../controllers/deleteEntreprise.php?id=<?php echo $entreprise['ID_Entreprise']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');"><img src="/Xcelstage/public/image/trash.png"></a></td>
+            </tr>
+            <?php endforeach; ?>
+
         </table>
     </div>
 

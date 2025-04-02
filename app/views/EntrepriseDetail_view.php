@@ -1,21 +1,6 @@
 <?php
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
-
-require_once '../models/SecteurActivite.php';
-require_once '../models/Ville.php';
-require_once '../models/Appartenir.php';
-require_once '../models/Implanter.php';
-require_once '/var/www/html/Xcelstage/config/database.php';
-
-$appartenirModel = new Appartenir($pdo);
-$appartenir = $appartenirModel->getbyID_Entreprise($entreprise['ID_Entreprise']);
-$secteurModel = new SecteurActivite($pdo);
-$secteur = $secteurModel->getSecteurAbyID($appartenir);
-$implanterModel = new Implanter($pdo);
-$implanter = $implanterModel->getbyID_Entreprise($entreprise['ID_Entreprise']);
-$villeModel = new Ville($pdo);
-$ville = $villeModel->getNomVillebyID($implanter);
 ?>
 
 <!DOCTYPE html>

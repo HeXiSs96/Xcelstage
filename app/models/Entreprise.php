@@ -14,6 +14,15 @@ class Entreprise {
         return $requete->execute([$NomE, $TelephoneE, $SiteWebE, $EmailE]);
     }
 
+    public function modifierEntreprise($ID_Entreprise, $NomE, $TelephoneE, $SiteWebE, $EmailE){
+        $requete = $this->pdo->prepare("UPDATE Entreprises SET NomE = ?, TelephoneE = ?, SiteWebE = ?, EmailE = ? WHERE ID_Entreprise = ?");
+        return $requete->execute([$NomE, $TelephoneE, $SiteWebE, $EmailE, $ID_Entreprise]);
+    }
+
+    public function supprimerEntreprise($ID_Entreprise){
+        $requete = $this->pdo->prepare("DELETE FROM Entreprises WHERE ID_Entreprise = ?");
+        return $requete->execute([$ID_Entreprise]);
+    }
     
     public function getAllNameEntreprises(){
         $requete = $this->pdo->prepare("SELECT NomE FROM Entreprises");
@@ -21,7 +30,7 @@ class Entreprise {
     }
 
     public function getAllEntreprises(){
-        $requete = $this->pdo->prepare("SELECT NomE FROM Entreprises");
+        $requete = $this->pdo->prepare("SELECT * FROM Entreprises");
         $requete->execute();
         return $requete->fetchAll(PDO::FETCH_ASSOC);
     }

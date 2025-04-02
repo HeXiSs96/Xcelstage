@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 
-require_once '/var/www/html/xcelstage/config/database.php';
+require_once '/var/www/html/Xcelstage/config/database.php';
 require_once '../models/Entreprise.php';
 require_once '../models/Implanter.php';
 require_once '../models/Appartenir.php';

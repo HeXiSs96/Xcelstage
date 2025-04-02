@@ -23,6 +23,17 @@ class Appartenir {
         return $requete->execute([$ID_Entreprise, $ID_SecteurA]);
     }
 
+    public function supprimerAppartenir($ID_Entreprise){
+        $requete = $this->pdo->prepare("DELETE FROM Appartenir WHERE ID_Entreprise = ?");
+        return $requete->execute([$ID_Entreprise]);
+    }
+
+    public function modifierAppartenir($ID_Entreprise, $NomS){
+        $ID_SecteurA = $this->SecteurAModel->getID_SecteurAbynom($NomS);
+        $requete = $this->pdo->prepare("UPDATE Appartenir SET ID_SecteurA = ? WHERE ID_Entreprise = ?");
+        return $requete->execute([$ID_SecteurA, $ID_Entreprise]);
+    }
+
     public function getbyID_Entreprise($ID_Entreprise){
         $requete = $this->pdo->prepare("SELECT ID_SecteurA FROM Appartenir WHERE ID_Entreprise = ?");
         $requete->execute([$ID_Entreprise]);

@@ -23,6 +23,17 @@ class Implanter {
         return $requete->execute([$ID_Entreprise, $ID_Ville]);
     }
 
+    public function supprimerImplanter($ID_Entreprise){
+        $requete = $this->pdo->prepare("DELETE FROM Implanter WHERE ID_Entreprise = ?");
+        return $requete->execute([$ID_Entreprise]);
+    }
+
+    public function modifierImplanter($ID_Entreprise, $NomV){
+        $ID_Ville = $this->villeModel->getID_Villebynom($NomV);
+        $requete = $this->pdo->prepare("UPDATE Implanter SET ID_Ville = ? WHERE ID_Entreprise = ?");
+        return $requete->execute([$ID_Ville, $ID_Entreprise]);
+    }
+
     public function getbyID_Entreprise($ID_Entreprise){
         $requete = $this->pdo->prepare("SELECT ID_Ville FROM Implanter WHERE ID_Entreprise = ?");
         $requete->execute([$ID_Entreprise]);

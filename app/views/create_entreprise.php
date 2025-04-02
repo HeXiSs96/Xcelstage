@@ -47,11 +47,16 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
         <select name="ville" id="ville">
         <option value="">Sélectionner une Ville</option>
         <?php foreach ($villes as $ville): ?>
-            <option value="<?php echo $ville['NomV']; ?>"><?php echo htmlspecialchars($Ville['NomV']); ?></option>
+            <option value="<?php echo $ville['NomV']; ?>"><?php echo htmlspecialchars($ville['NomV']); ?></option>
         <?php endforeach; ?>
         </select>
         <label for="secteur">Secteur d'activité:</label><br>
-        <input type="text" id="secteur" name="secteur" required><br><br>
+        <select name="secteur" id="secteur">
+        <option value="">Sélectionner un secteur d'activité</option>
+        <?php foreach ($secteurs as $secteur): ?>
+            <option value="<?php echo $secteur['NomS']; ?>"><?php echo htmlspecialchars($secteur['NomS']); ?></option>
+        <?php endforeach; ?>
+        </select>
         <input type="submit" value="Ajouter l'entreprise">
     </form>
 </body>
