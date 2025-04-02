@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap');
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-
 }
 body {
     display: flex;
@@ -12,10 +11,11 @@ body {
     justify-content: center;
     min-height: 100vh;
     position: relative;
+    padding: 20px;
 }
 .Btn_add {
     width: fit-content;
-    margin-bottom:20px;
+    margin-bottom: 20px;
     background-color: #2bc48a;
     padding: 5px 20px;
     color: #fff;

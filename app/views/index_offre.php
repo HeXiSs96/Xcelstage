@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Offres</title>
-    <link rel="stylesheet" href="style_offre.css">
+    <link rel="stylesheet" href="/Xcelstage/public/CSS/style_ut.css">
     <script src="script_offre.js" defer></script>
 </head>
 <body>

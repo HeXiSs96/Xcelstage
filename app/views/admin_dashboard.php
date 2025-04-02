@@ -1,6 +1,6 @@
-<?php
-session_start();
+<?php include  "/header.php"; ?>
 
+<<<<<<< HEAD
 if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
     header("Location: /Xcelstage/public/");
     exit();
@@ -13,40 +13,17 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion de XcelStage</title>
+=======
+<main>
+    <h1>Bienvenue dans la gestion de XcelStage</h1>
+    <div class="buttons">
+        <a href="index_offre.php" class="btn">Offres</a>
+        <a href="index_entreprise.php" class="btn">Entreprises</a>
+        <a href="index_ut.php" class="btn">Utilisateurs</a>
+    </div>
+    <!-- Lien vers le fichier CSS spécifique pour le main -->
+>>>>>>> 8bdd5e1 (admin dashboard)
     <link rel="stylesheet" href="/Xcelstage/public/CSS/style.css">
-</head>
-<body>
-    <header>
-        <h1>Gestion de XcelStage</h1>
-    </header>
-    
-    <main>
-        <p>Bienvenue dans l’espace d’administration de XcelStage. Sélectionnez une section à gérer.</p>
-        
-        <section>
-            <h2>Gestion des Offres de Stage</h2>
-            <a href="create_offre.php">➕ Ajouter une offre</a>
-            <a href="offres.php">📋 Voir les offres</a>
-            <a href="edit_offre.php">✏️ Modifier une offre</a>
-            <a href="delete_offre.php">🗑️ Supprimer une offre</a>
-        </section>
-        
-        <section>
-            <h2>Gestion des Pilotes</h2>
-            <a href="create_pilote.php">➕ Ajouter un pilote</a>
-            <a href="pilotes.php">📋 Voir les pilotes</a>
-            <a href="edit_pilote.php">✏️ Modifier un pilote</a>
-            <a href="delete_pilote.php">🗑️ Supprimer un pilote</a>
-        </section>
-        
-        <section>
-            <h2>Gestion des Étudiants</h2>
-            <a href="create_etudiant.php">➕ Ajouter un étudiant</a>
-            <a href="etudiants.php">📋 Voir les étudiants</a>
-            <a href="edit_etudiant.php">✏️ Modifier un étudiant</a>
-            <a href="delete_etudiant.php">🗑️ Supprimer un étudiant</a>
-        </section>
-        
-    </main>
-</body>
-</html>
+</main>
+
+<?php include "/footer.php"; ?>
