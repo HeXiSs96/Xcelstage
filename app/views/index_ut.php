@@ -1,3 +1,16 @@
+<?php
+session_start();
+
+if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
+    //header("Location: /Xcelstage/public/");
+    echo $_SESSION['Role'];
+    var_dump($_SESSION);
+    phpinfo();
+    exit();
+
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

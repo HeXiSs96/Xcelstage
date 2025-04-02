@@ -1,5 +1,8 @@
 <?php
-// header.php - En-tête commun à toutes les pages
+session_start();
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -23,7 +26,13 @@
             <li><a href="../public/index.php">Accueil</a></li>
             <li><a href="entreprises.php">Entreprises</a></li>
             <li><a href="offres.php">Offres</a></li>
-            <li><a href="../app/views/login.php">Connexion</a></li>
+            <?php
+            if (isset($_SESSION['Role'])) : ?>
+                <li><a href="../app/controllers/deconnection.php">Déconnexion</a></li>
+            <?php else : ?>
+                <?php var_dump($_SESSION);?>
+                <li><a href="../app/views/login.php">Connexion</a></li>
+            <?php endif; ?>
         </ul>
     </nav>
 

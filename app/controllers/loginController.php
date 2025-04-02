@@ -7,7 +7,7 @@ require_once '/var/www/html/Xcelstage/config/database.php';
 require_once '../models/Utilisateur.php';
 require_once '../models/Role.php';
 
-
+//var_dump($_SESSION);
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // Récupérer les données du formulaire
@@ -24,10 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ($utilisateur && password_verify($MdpU, $utilisateur['MdpU'])) {
         // L'utilisateur est authentifié
+        //echo $utilisateur['ID_Utilisateur'];
         $_SESSION['ID_Utilisateur'] = $utilisateur['ID_Utilisateur'];
         $_SESSION['Role'] = $role;
         
-        
+        //echo isset($_SESSION['user_id']);
+        //var_dump($_SESSION);
         // Redirection vers la page d'accueil
         header("Location: /Xcelstage/public/");
         exit();

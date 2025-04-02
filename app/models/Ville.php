@@ -10,7 +10,8 @@ class Ville {
     // Méthode pour ajouter une entrée dans la table Utilisateur
     public function getAllVilles(){
         $requete = $this->pdo->prepare("SELECT NomV FROM Ville");
-        return $requete->execute();
+        $requete->execute();
+        return $requete->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getID_Villebynom($NomV){

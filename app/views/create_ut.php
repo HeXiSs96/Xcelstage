@@ -43,7 +43,7 @@
         <p class="erreur_message">
             <?php if(isset($message)) echo $message; ?>
         </p>
-        <form action="" method="POST">
+        <form action="../controllers/createUtilisateur.php" method="POST">
             <label>Nom</label>
             <input type="text" name="nom" required>
             
