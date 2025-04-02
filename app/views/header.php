@@ -30,7 +30,6 @@ error_reporting(E_ALL);
             if (isset($_SESSION['Role'])) : ?>
                 <li><a href="../app/controllers/deconnection.php">Déconnexion</a></li>
             <?php else : ?>
-                <?php var_dump($_SESSION);?>
                 <li><a href="../app/views/login.php">Connexion</a></li>
             <?php endif; ?>
         </ul>

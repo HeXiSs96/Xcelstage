@@ -20,6 +20,13 @@ class Ville {
         $resultat = $requete->fetch(PDO::FETCH_ASSOC);
         return $resultat ? $resultat['ID_Ville'] : null;
     }
+
+    public function getNomVillebyID($ID_Ville){
+        $requete = $this->pdo->prepare("SELECT NomV FROM Ville WHERE ID_Ville = ?");
+        $requete->execute([$ID_Ville]);
+        $resultat = $requete->fetch(PDO::FETCH_ASSOC);
+        return $resultat ? $resultat['NomV'] : null;
+    }
 }
 
 ?>

@@ -14,9 +14,9 @@ include("../app/views/header.php");
         </div>
         <div class="bouton">
 
-            <a href="../app/views/index_entreprise.php" class="btn">RECHERCHER UNE OFFRE</a>
+            <a href="../app/views/recherche.php" class="btn">RECHERCHER UNE OFFRE</a>
 
-            <a href="../app/views/admin_dashboard.php" class="btn">RECHERCHER UNE ENTREPRISE</a>
+            <a href="../app/views/EntrepriseView.php" class="btn">RECHERCHER UNE ENTREPRISE</a>
         </div>
     </div>
 </main>

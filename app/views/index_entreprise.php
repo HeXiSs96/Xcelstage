@@ -1,3 +1,26 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+session_start();
+
+require_once '/var/www/html/Xcelstage/config/database.php';
+require_once '../models/Entreprise.php';
+
+if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
+    header("Location: /Xcelstage/public/");
+    //echo $_SESSION['Role'];
+    exit();
+
+} else {
+    $entrepriseModel = new Entreprise($pdo);
+    $villeModel = new Ville($pdo);
+
+    $entreprises = $EntrepriseModel->getAllEntreprises();
+    $villes = $villeModel->getNomVillebyID();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,47 +50,28 @@
             <tr id="items">
                 <th>Nom</th>
                 <th>Secteur</th>
-                <th>Adresse</th>
                 <th>Téléphone</th>
                 <th>Email</th>
                 <th>Site Web</th>
+                <th>Ville</th>
                 <th>Consulter</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
-            <?php 
-                include_once "connexion.php";
-
-                $search = isset($_GET['search']) ? mysqli_real_escape_string($con, $_GET['search']) : '';
-
-                $sql = "SELECT * FROM Entreprise";
-                if (!empty($search)) {
-                    $sql .= " WHERE nom LIKE '%$search%' 
-                              OR secteur LIKE '%$search%' 
-                              OR adresse LIKE '%$search%'";
-                }
-
-                $req = mysqli_query($con, $sql);
-                if(mysqli_num_rows($req) == 0){
-                    echo "<tr><td colspan='9'>Aucune entreprise trouvée !</td></tr>";
-                } else {
-                    while($row = mysqli_fetch_assoc($req)){
-                        ?>
-                        <tr>
-                            <td><?=$row['nom']?></td>
-                            <td><?=$row['secteur']?></td>
-                            <td><?=$row['adresse']?></td>
-                            <td><?=$row['telephone']?></td>
-                            <td><?=$row['email']?></td>
-                            <td><a href="<?=$row['site_web']?>" target="_blank">Visiter</a></td>
-                            <td><a href="view_entreprise.php?id=<?=$row['id']?>"><button>Consulter</button></a></td>
-                            <td><a href="edit_entreprise.php?id=<?=$row['id']?>"><img src="images/pen.png"></a></td>
-                            <td><a href="delete_entreprise.php?id=<?=$row['id']?>" onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');"><img src="images/trash.png"></a></td>
-                        </tr>
-                        <?php
-                    }
-                }
-            ?>
+            <tr>
+            <?php foreach ($entreprises as $entreprise): ?>
+                <td><?=$row['NomE']?></td>
+                <td><?=$villeModel->getNomVillebyID($row['ID_SecteurA'])?></td>
+                <td><?=$row['Telephone']?></td>
+                <td><?=$row['email']?></td>
+                <td><a href="<?=$row['site_web']?>" target="_blank">Visiter</a></td>
+                <td><?=$villeModel->getNomVillebyID($row['ID_Ville'])?></td>
+        <?php endforeach; ?>
+        <td><a href="view_entreprise.php?id=<?=$row['id']?>"><button>Consulter</button></a></td>
+                <td><a href="edit_entreprise.php?id=<?=$row['id']?>"><img src="images/pen.png"></a></td>
+                <td><a href="delete_entreprise.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');"><img src="images/trash.png"></a></td>
+            </tr>
+            
         </table>
     </div>
 

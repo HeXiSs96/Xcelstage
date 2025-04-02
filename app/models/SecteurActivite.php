@@ -20,6 +20,13 @@ class SecteurActivite {
         $resultat = $requete->fetch(PDO::FETCH_ASSOC);
         return $resultat ? $resultat['ID_SecteurA'] : null;
     }
+
+    public function getSecteurAbyID($ID_SecteurA){
+        $requete = $this->pdo->prepare("SELECT NomS FROM SecteurActivite WHERE ID_SecteurA = ?");
+        $requete->execute([$ID_SecteurA]);
+        $resultat = $requete->fetch(PDO::FETCH_ASSOC);
+        return $resultat ? $resultat['NomS'] : null;
+    }
 }
 
 ?>

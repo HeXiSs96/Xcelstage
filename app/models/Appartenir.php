@@ -23,6 +23,13 @@ class Appartenir {
         return $requete->execute([$ID_Entreprise, $ID_SecteurA]);
     }
 
+    public function getbyID_Entreprise($ID_Entreprise){
+        $requete = $this->pdo->prepare("SELECT ID_SecteurA FROM Appartenir WHERE ID_Entreprise = ?");
+        $requete->execute([$ID_Entreprise]);
+        $resultat = $requete->fetch(PDO::FETCH_ASSOC);
+        return $resultat ? $resultat['ID_SecteurA'] : null;
+    }
+
 }
 
 ?>

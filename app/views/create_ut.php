@@ -8,34 +8,6 @@
     <link rel="stylesheet" href="/Xcelstage/public/CSS/style_ut.css">
 </head>
 <body>
-    <?php
-       if(isset($_POST['button'])){
-           extract($_POST);
-           
-           // Vérifier que tous les champs sont remplis
-           if(isset($nom) && isset($prenom) && isset($email) && isset($password) && isset($date_naissance) && isset($role)) {
-                include_once "connexion.php";
-
-                // Hachage du mot de passe pour la sécurité
-                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
-                // Date de création automatique
-                $date_creation = date("Y-m-d H:i:s");
-
-                // Requête d'ajout
-                $req = mysqli_query($con, "INSERT INTO Employe (nom, prenom, email, password, date_naissance, role, date_creation) 
-                                           VALUES ('$nom', '$prenom', '$email', '$hashed_password', '$date_naissance', '$role', '$date_creation')");
-                
-                if($req){
-                    header("location: index_ut.php");
-                } else {
-                    $message = "Employé non ajouté";
-                }
-           } else {
-               $message = "Veuillez remplir tous les champs !";
-           }
-       }
-    ?>
 
     <div class="form">
         <a href="index_ut.php" class="back_btn"><img src="../public/image/arrow.png"> Retour</a>
