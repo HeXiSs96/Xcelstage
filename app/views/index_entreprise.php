@@ -16,8 +16,7 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
     $entrepriseModel = new Entreprise($pdo);
     $villeModel = new Ville($pdo);
 
-    $entreprises = $EntrepriseModel->getAllEntreprises();
-    $villes = $villeModel->getNomVillebyID();
+    $entreprises = $entrepriseModel->getAllEntreprises();
 }
 ?>
 

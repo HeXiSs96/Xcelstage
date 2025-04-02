@@ -23,6 +23,10 @@ error_reporting(E_ALL);
     <!-- Navigation -->
     <nav>
         <ul>
+        <?php
+            if ($_SESSION['Role'] == "Administrateur" || $_SESSION['Role'] == "Pilote") : ?>
+                <li><a href="../app/views/admin_dashboard.php">Dashboard</a></li>
+            <?php endif; ?>
             <li><a href="../public/index.php">Accueil</a></li>
             <li><a href="entreprises.php">Entreprises</a></li>
             <li><a href="offres.php">Offres</a></li>

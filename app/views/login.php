@@ -8,54 +8,6 @@ if (isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Vérifier si le formulaire est soumis
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Connexion à la base de données
-    $db_host = "localhost";
-    $db_user = "root";  // Modifie en fonction de ta configuration
-    $db_pass = "";      // Modifie en fonction de ta configuration
-    $db_name = "xcelstage"; // Modifie en fonction de ta base de données
-
-    $conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-
-    // Vérifier la connexion
-    if ($conn->connect_error) {
-        die("La connexion a échoué: " . $conn->connect_error);
-    }
-
-    // Récupérer les informations du formulaire
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    // Préparer la requête SQL pour vérifier l'email et le mot de passe
-    $sql = "SELECT * FROM utilisateurs WHERE email = ?";
-    $stmt = $conn->prepare($sql);
-    $stmt->bind_param("s", $email);
-    $stmt->execute();
-    $result = $stmt->get_result();
-
-    // Vérifier si l'utilisateur existe et si le mot de passe est correct
-    if ($result->num_rows > 0) {
-        $user = $result->fetch_assoc();
-        if (password_verify($password, $user['mot_de_passe'])) {
-            // Si la connexion est réussie, enregistrer l'utilisateur dans la session
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['user_email'] = $user['email'];
-
-            // Rediriger l'utilisateur vers la page d'accueil ou autre
-            header("Location: accueil.php");
-            exit();
-        } else {
-            $error = "Mot de passe incorrect.";
-        }
-    } else {
-        $error = "Aucun utilisateur trouvé avec cet email.";
-    }
-
-    // Fermer la connexion à la base de données
-    $stmt->close();
-    $conn->close();
-}
 ?>
 
 <!DOCTYPE html>
