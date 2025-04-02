@@ -9,7 +9,7 @@ class SecteurActivite {
 
     // Méthode pour ajouter une entrée dans la table Utilisateur
     public function getAllSecteurAs(){
-        $requete = $this->pdo->prepare("SELECT NomS FROM SecteurA");
+        $requete = $this->pdo->prepare("SELECT NomS FROM SecteurActivite");
         return $requete->execute();
     }
 

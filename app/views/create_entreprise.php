@@ -3,11 +3,14 @@ ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
 session_start();
+
+require_once '/var/www/html/Xcelstage/config/database.php';
 require_once '../models/Ville.php';
 require_once '../models/SecteurActivite.php';
 
 if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
-    header("Location: /xcelstage/public/");
+    //header("Location: /Xcelstage/public/");
+    echo $_SESSION['Role'];
     exit();
 
 } elseif ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -23,8 +26,11 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
         echo "Erreur : " . mysqli_error($conn);
     }
 } else {
-    $villes = getAllVilles();
-    $secteurs = getAllSecteurAs();
+    $villeModel = new Ville($pdo);
+    $secteurModel = new SecteurActivite($pdo);
+
+    $villes = $villeModel->getAllVilles();
+    $secteurs = $secteurModel->getAllSecteurAs();
 }
 
 ?>

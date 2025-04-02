@@ -8,10 +8,12 @@ class Role {
     }
 
     // Méthode pour récupérer les données de l'utilisateur à partir de son mail
-    public function getRolebyID($ID_Role) {
+    public function getRoleByID($ID_Role) {
         $stmt = $this->pdo->prepare("SELECT NomRole FROM Role WHERE ID_Role = ?");
         $stmt->execute([$ID_Role]);
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['NomRole'] : null;
     }
+    
 }
 ?>

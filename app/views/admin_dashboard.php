@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
-    header("Location: /xcelstage/public/");
+    header("Location: /Xcelstage/public/");
     exit();
 }
 ?>
