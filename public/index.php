@@ -11,7 +11,7 @@ include('../app/views/header.php');
         </div>
         <div class="bouton">
             <a href="chercher_une_offre.php" class="btn">RECHERCHER UNE OFFRE</a>
-            <a href="create_entreprise.php" class="btn">RECHERCHER UNE ENTREPRISE</a>
+            <a href="/Xcelstage/app/views/create_entreprise.php" class="btn">RECHERCHER UNE ENTREPRISE</a>
         </div>
     </div>
 </main>

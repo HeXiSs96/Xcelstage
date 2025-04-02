@@ -4,7 +4,7 @@ session_start();
 
 // Vérifier si l'utilisateur est déjà connecté
 if (isset($_SESSION['user_id'])) {
-    header("Location: accueil.php"); // Rediriger si déjà connecté
+    header("Location: /Xcelstage/public/"); // Rediriger si déjà connecté
     exit();
 }
 
