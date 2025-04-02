@@ -25,7 +25,7 @@
                     <li><a href="#">Accueil</a></li>
                     <li><a href="#">News</a></li>
                     <li><a href="#">A propos</a></li>
-                    <li><a href="#">Contactez-nous</a></li>
+                    <li><a href="../app/views/contact.php">Contactez-nous</a></li>
                     <li><a href="#">Notre équipe</a></li>
                 </ul>
             </div>
