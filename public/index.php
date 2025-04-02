@@ -25,3 +25,4 @@ include("../app/views/footer.php");
 ?>
 
 <script src="/public/JS/script.js"></script>
+ 
