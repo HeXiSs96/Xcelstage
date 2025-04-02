@@ -1,0 +1,93 @@
+/* Style pour le contenu principal */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 80px); /* Ajuste la hauteur pour laisser de la place à l'en-tête */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(/Test2/image/back.jpg); /* Image en fond avec un dégradé */
+    background-size: cover;
+    background-position: center;
+    color: white; /* Texte en blanc pour contraster avec l'image */
+}
+
+.principale {
+    max-width: 144rem;
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+}
+
+.titre {
+    margin-bottom: 70px; /* Espace entre le titre et les boutons */
+}
+
+.titre h1 {
+    font-size: 3rem;
+    color: white;
+}
+
+.bouton {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.bouton a {
+    color: white;
+    background-color: #007bff;
+    text-decoration: none;
+    border: 1px solid transparent;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.bouton a:hover {
+    background-color: #0056b3;
+    color: white;
+}
+
+/* Responsive Design */
+
+/* Écrans moyens (tablettes et petits laptops) */
+@media screen and (max-width: 1024px) {
+    .principale {
+        padding: 0 10%;
+    }
+
+    .titre h1 {
+        font-size: 5vw;
+    }
+
+    .bouton a {
+        padding: 8% 12%;
+        font-size: 4vw;
+    }
+}
+
+/* Écrans petits (mobiles) */
+@media screen and (max-width: 768px) {
+    main {
+        flex-direction: column;
+    }
+
+    .principale {
+        padding: 0 20px;
+    }
+
+    .titre h1 {
+        font-size: 8vw;
+    }
+
+    .bouton {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .bouton a {
+        padding: 12px 25px;
+        font-size: 5vw;
+    }
+}

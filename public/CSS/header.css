@@ -10,8 +10,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 5%;
-    background-color: #000;
+    padding: 20px 5%;
+    background-color: #1E293B; /* Bleu nuit */
     height: 80px;
     width: 100%;
     position: relative;
@@ -47,19 +47,18 @@ nav ul {
 /* Liens de navigation */
 nav ul li a {
     text-decoration: none;
-    color: white;
+    color: #F8FAFC; /* Blanc cassé */
     font-weight: bold;
     transition: 0.3s;
     padding: 10px 15px;
     border-radius: 5px;
 }
 
-/* Quand le bouton devient blanc */
+/* Quand le bouton devient bleu acier */
 nav ul li a:hover {
-    background-color: rgb(255, 255, 255);
-    color: black; /* Changement de couleur du texte */
+    background-color: #3B82F6; /* Bleu acier */
+    color: #F8FAFC; /* Blanc cassé */
 }
-
 
 /* Menu Burger */
 .burger {
@@ -72,7 +71,7 @@ nav ul li a:hover {
 .burger div {
     width: 30px;
     height: 4px;
-    background-color: white;
+    background-color: #F8FAFC; /* Blanc cassé */
     margin: 5px;
 }
 
@@ -97,7 +96,7 @@ nav ul li a:hover {
         top: 10px;
         right: 0;
         width: 200px;
-        background-color: #000;
+        background-color: #1E293B; /* Bleu nuit */
         padding: 15px 0;
         border-radius: 10px;
         text-align: center;

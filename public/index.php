@@ -1,7 +1,10 @@
 <?php
 // Inclure l'en-tête pour éviter la répétition sur plusieurs pages
-include('../app/views/header.php');
+include("../app/views/header.php");
 ?>
+
+<!-- Lien vers le fichier CSS -->
+<link rel="stylesheet" href="/Xcelstage/public/CSS/style.css">
 
 <main>
     <!-- Contenu spécifique à la page d'accueil -->
@@ -18,7 +21,7 @@ include('../app/views/header.php');
 
 <?php
 // Inclure le pied de page pour éviter la répétition sur plusieurs pages
-include('../app/views/footer.php');
+include("../app/views/footer.php");
 ?>
 
-<script src="/Test2/JS/script.js"></script>
+<script src="/public/JS/script.js"></script>

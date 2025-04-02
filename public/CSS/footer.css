@@ -11,15 +11,15 @@ footer {
 }
 
 footer {
-    background-color: #111;
+    background-color: #1E293B; /* Bleu nuit */
     width: 100%;
-    padding: 20px 0;
+    padding: 10px 0; /* Réduction de padding */
 }
 
 /* Conteneur du footer */
 .footerContainer {
     width: 100%;
-    padding: 20px; /* Réduction des paddings */
+    padding: 10px 0; /* Réduction du padding */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -30,38 +30,38 @@ footer {
 .socialIcons {
     display: flex;
     justify-content: center;
-    gap: 10px; /* Espacement entre les icônes */
-    margin-bottom: 20px; /* Plus d'espace sous les icônes */
+    gap: 15px; /* Réduction de l'espacement */
+    margin-bottom: 10px; /* Réduction de l'espace sous les icônes */
 }
 
 .socialIcons a {
     text-decoration: none;
-    padding: 6px; /* Réduction des icônes */
-    background-color: white;
+    padding: 4px; /* Réduction de taille des icônes */
+    background-color: #F8FAFC; /* Blanc cassé */
     margin: 0;
     border-radius: 50%;
 }
 
 .socialIcons a i {
-    font-size: 1.5em;
-    color: black;
+    font-size: 1.2em; /* Réduction de la taille des icônes */
+    color: #1E293B; /* Bleu nuit */
     opacity: 0.9;
 }
 
 /* Hover sur les icônes sociales */
 .socialIcons a:hover {
-    background-color: #111;
+    background-color: #3B82F6; /* Bleu acier */
     transition: 0.5s;
 }
 
 .socialIcons a:hover i {
-    color: white;
+    color: #F8FAFC; /* Blanc cassé */
     transition: 0.5s;
 }
 
 /* Navigation du footer */
 .footerNav {
-    margin: 15px 0;
+    margin: 10px 0; /* Réduction de la marge */
     width: 100%;
 }
 
@@ -69,13 +69,13 @@ footer {
     display: flex;
     justify-content: center;
     list-style-type: none;
-    gap: 20px;
+    gap: 15px; /* Réduction de l'espacement */
 }
 
 .footerNav ul li a {
-    color: white;
+    color: #F8FAFC; /* Blanc cassé */
     text-decoration: none;
-    font-size: 1em;
+    font-size: 0.9em; /* Réduction de la taille de la police */
     opacity: 0.7;
     transition: 0.5s;
 }
@@ -86,11 +86,11 @@ footer {
 
 /* Section footer bottom */
 .footerBottom {
-    background-color: #000;
-    padding: 10px;
+    background-color: #000; /* Noir */
+    padding: 5px; /* Réduction de padding */
     text-align: center;
-    font-size: 0.9em;
-    color: white;
+    font-size: 0.8em; /* Réduction de la taille de la police */
+    color: #F8FAFC; /* Blanc cassé */
 }
 
 .designer {
@@ -104,29 +104,29 @@ footer {
 /* Responsive pour footer */
 @media (max-width: 700px) {
     .footerContainer {
-        padding: 10px; /* Réduction du padding */
+        padding: 5px; /* Réduction du padding */
     }
 
     /* Icônes sociales */
     .socialIcons {
-        gap: 8px; /* Réduction de l'espacement */
-        margin-bottom: 15px; /* Réduction de l'espace sous les icônes */
+        gap: 10px; /* Réduction de l'espacement */
+        margin-bottom: 10px; /* Réduction de l'espace sous les icônes */
     }
 
     .socialIcons a {
-        padding: 5px; /* Réduction de la taille des icônes */
+        padding: 4px; /* Réduction de la taille des icônes */
         margin: 0 5px; /* Espacement réduit entre les icônes */
     }
 
     /* Navigation du footer */
     .footerNav ul {
         flex-direction: column;
-        gap: 10px; /* Moins d'espacement entre les éléments */
+        gap: 5px; /* Réduction de l'espacement entre les éléments */
     }
 
     .footerNav ul li a {
-        font-size: 0.9em; /* Texte plus petit sur petits écrans */
-        padding: 10px; /* Réduction de l'espace autour des liens */
+        font-size: 0.8em; /* Réduction de la taille de la police sur mobile */
+        padding: 8px; /* Réduction de l'espace autour des liens */
     }
 
     /* Footer bottom */
