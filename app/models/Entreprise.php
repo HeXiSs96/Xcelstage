@@ -22,7 +22,8 @@ class Entreprise {
 
     public function getAllEntreprises(){
         $requete = $this->pdo->prepare("SELECT NomE FROM Entreprises");
-        return $requete->execute();
+        $requete->execute();
+        return $requete->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public function getID_Entreprisebyemail($EmailE) {
