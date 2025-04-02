@@ -31,6 +31,7 @@
                 <th>Téléphone</th>
                 <th>Email</th>
                 <th>Site Web</th>
+                <th>Consulter</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
@@ -48,7 +49,7 @@
 
                 $req = mysqli_query($con, $sql);
                 if(mysqli_num_rows($req) == 0){
-                    echo "<tr><td colspan='8'>Aucune entreprise trouvée !</td></tr>";
+                    echo "<tr><td colspan='9'>Aucune entreprise trouvée !</td></tr>";
                 } else {
                     while($row = mysqli_fetch_assoc($req)){
                         ?>
@@ -59,8 +60,9 @@
                             <td><?=$row['telephone']?></td>
                             <td><?=$row['email']?></td>
                             <td><a href="<?=$row['site_web']?>" target="_blank">Visiter</a></td>
+                            <td><a href="view_entreprise.php?id=<?=$row['id']?>"><button>Consulter</button></a></td>
                             <td><a href="edit_entreprise.php?id=<?=$row['id']?>"><img src="images/pen.png"></a></td>
-                            <td><a href="delete_entreprise.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');"><img src="images/trash.png"></a></td>
+                            <td><a href="delete_entreprise.php?id=<?=$row['id']?>" onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');"><img src="images/trash.png"></a></td>
                         </tr>
                         <?php
                     }

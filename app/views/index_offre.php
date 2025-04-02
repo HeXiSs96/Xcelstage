@@ -34,6 +34,7 @@
                 <th>Description</th>
                 <th>Rémunération</th>
                 <th>Nombre de postulants</th>
+                <th>Consulter</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
@@ -53,7 +54,7 @@
 
                 $req = mysqli_query($con, $sql);
                 if(mysqli_num_rows($req) == 0){
-                    echo "<tr><td colspan='9'>Aucune offre trouvée !</td></tr>";
+                    echo "<tr><td colspan='10'>Aucune offre trouvée !</td></tr>";
                 } else {
                     while($row = mysqli_fetch_assoc($req)){
                         ?>
@@ -65,6 +66,7 @@
                             <td><?=$row['description']?></td>
                             <td><?=$row['remuneration']?> €</td>
                             <td><?=$row['nb_postulants']?></td>
+                            <td><a href="view_offre.php?id=<?=$row['id']?>"><img src="images/view.png"></a></td>
                             <td><a href="edit_offre.php?id=<?=$row['id']?>"><img src="images/pen.png"></a></td>
                             <td><a href="delete_offre.php?id=<?=$row['id']?>" onclick="return confirm('Voulez-vous vraiment supprimer cette offre ?');"><img src="images/trash.png"></a></td>
                         </tr>
