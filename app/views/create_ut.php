@@ -38,7 +38,7 @@
     ?>
 
     <div class="form">
-        <a href="index_ut.php" class="back_btn"><img src="images/arrow.png"> Retour</a>
+        <a href="index_ut.php" class="back_btn"><img src="../public/image/arrow.png"> Retour</a>
         <h2>Ajouter un utilisateur</h2>
         <p class="erreur_message">
             <?php if(isset($message)) echo $message; ?>

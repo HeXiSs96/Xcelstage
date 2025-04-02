@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion Employés</title>
     <link rel="stylesheet" href="/Xcelstage/public/CSS/style_ut.css">
-    <script src="/Xcelstage/public/JS/script_ut.js"></script>
+    <script src="../public/JS/script_ut.js"></script>
 </head>
 <body>
     <div class="container">
