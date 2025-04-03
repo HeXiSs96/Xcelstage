@@ -39,7 +39,6 @@ if (isset($_SESSION['user_id'])) {
                 <div class="identifiants">
                     <input type="email" name="email" placeholder="Adresse Email" required>
                     <input type="password" name="password" placeholder="Mot de passe" required>
-                    <a href="#">Mots de passe / Adresse Email oublié.</a>
                 </div>
                 <input type="submit" value="Connexion">
             </form>
