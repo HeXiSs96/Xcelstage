@@ -1,0 +1,119 @@
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F8FAFC; /* Blanc cassé pour le fond */
+    color: #1E293B; /* Bleu nuit pour le texte général */
+    text-align: center;
+}
+
+/* Mise en forme du main */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: calc(100vh - 80px); /* Ajuste la hauteur pour laisser de la place à l'en-tête */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../image/back.jpg); /* Image en fond avec un dégradé */
+    background-size: cover;
+    background-position: center;
+    color: #F8FAFC; /* Texte en blanc cassé pour contraster avec l'image */
+    padding: 20px;
+}
+
+/* Styles spécifiques à la page des candidatures */
+.candidatures-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.candidature-card {
+    border: 1px solid #ccc; /* Bordure grise pour chaque candidature */
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: white; /* Fond blanc pour les blocs */
+    color: #1E293B; /* Bleu nuit pour le texte des candidatures */
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px; /* Limite la largeur des blocs */
+}
+
+/* Titre principal */
+h1 {
+    font-size: 2.5rem;
+    color: #F8FAFC; /* Blanc cassé pour le titre */
+    margin-bottom: 20px;
+}
+
+/* Style des liens */
+a {
+    color: #3B82F6; /* Bleu acier pour les liens */
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+/* Effet sur les liens au survol */
+a:hover {
+    color: #047857; /* Vert foncé au survol */
+}
+
+/* Titre des candidatures */
+.candidature-card h2 {
+    font-size: 1.8rem;
+    color: #047857; /* Vert foncé pour le titre de chaque candidature */
+    margin-bottom: 10px;
+}
+
+/* Sous-titre des candidatures */
+.candidature-card h3 {
+    font-size: 1.3rem;
+    color: #3B82F6; /* Bleu acier pour l'entreprise */
+    margin-bottom: 10px;
+}
+
+/* Informations des candidatures */
+.candidature-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Responsive Design pour les écrans petits et moyens */
+@media (max-width: 768px) {
+    /* Ajuste la taille du titre sur petits écrans */
+    h1 {
+        font-size: 2rem;
+    }
+
+    /* Les candidatures prennent toute la largeur disponible */
+    .candidature-card {
+        width: 90%;
+        padding: 10px;
+    }
+
+    /* Les liens deviennent plus grands */
+    a {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajuste encore plus pour les très petits écrans */
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    /* Les titres des candidatures deviennent plus petits */
+    .candidature-card h2 {
+        font-size: 1.4rem;
+    }
+
+    /* Les paragraphes deviennent un peu plus compacts */
+    .candidature-card p {
+        font-size: 0.9rem;
+    }
+}

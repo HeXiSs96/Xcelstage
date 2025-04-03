@@ -9,7 +9,7 @@
 <body>
     <div class="container">
         <div class="profile-card">
-            <img src="images/default_profile.png" alt="Photo de profil" class="profile-picture">
+            
             <h2 id="user-name">Nom de l'utilisateur</h2>
             <p><strong>Email :</strong> <span id="user-email">email@example.com</span></p>
             <p><strong>Téléphone :</strong> <span id="user-phone">+33 6 12 34 56 78</span></p>

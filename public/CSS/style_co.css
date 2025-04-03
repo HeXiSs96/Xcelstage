@@ -8,7 +8,7 @@
 }
 
 body {
-    background-color: #fff; /* Fond sombre pour uniformiser avec la page d'accueil */
+    background-color: #F8FAFC; /* Blanc cassé pour le fond */
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -21,7 +21,7 @@ body {
     padding: 0 10%;
     justify-content: space-between;
     align-items: center;
-    background-color: #fff; /* Fond plus sombre */
+    background-color: #F8FAFC; /* Fond blanc cassé */
     border-radius: 10px;
 }
 
@@ -30,13 +30,14 @@ body {
 }
 
 .title {
-    color: #2BAEF7; /* Couleur bleue comme sur la page d'accueil */
+    color: #1E293B; /* Bleu nuit pour le titre */
     font-size: 20px;
 }
 
 h1 {
     margin: 10px 0;
     font-size: 25px;
+    color: #1E293B; /* Bleu nuit pour les titres */
 }
 
 .login {
@@ -64,29 +65,29 @@ form input {
     border-bottom: 2px solid #999;
     outline: 0;
     transition: 0.5s;
-    color: #2BAEF7; /* Couleur bleue pour les champs */
+    color: #3B82F6; /* Bleu acier pour les champs */
 }
 
 form input:focus {
-    border-bottom: 2px solid #2BAEF7;
+    border-bottom: 2px solid #3B82F6; /* Bleu acier pour le focus */
 }
 
 form a {
     text-align: right;
     margin-top: 12px;
-    color: #fff; /* Texte en blanc pour correspondre à l'interface */
+    color: #047857; /* Vert foncé pour les liens */
     text-decoration: 0;
     font-weight: 500;
     transition: 0.25s;
 }
 
 form a:hover {
-    color: #2BAEF7; /* Hover en bleu comme sur la page d'accueil */
+    color: #1E293B; /* Bleu nuit pour le hover */
 }
 
 form input[type='submit'] {
-    background-color: #2BAEF7;
-    border: 1px solid #2BAEF7;
+    background-color: #047857; /* Vert foncé pour le bouton */
+    border: 1px solid #047857;
     color: #fff;
     border-radius: 20px;
     margin-top: 15px;
@@ -106,7 +107,7 @@ form input[type='submit'] {
 }
 
 .link-2 a:hover {
-    color: #2BAEF7; /* Hover en bleu */
+    color: #3B82F6; /* Bleu acier pour le hover */
 }
 
 @media (max-width: 1300px) {

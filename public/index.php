@@ -1,4 +1,4 @@
-<?php 
+<?php
 // Inclure l'en-tête
 include("../app/views/header.php");
 ?>

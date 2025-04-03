@@ -1,10 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 body {
     display: flex;
     align-items: center;
@@ -12,101 +14,175 @@ body {
     min-height: 100vh;
     position: relative;
     padding: 20px;
+    background-color: #F8FAFC; /* Blanc cassé pour le fond */
 }
+
+/* Conteneur principal */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-image: url('/Xcelstage/public/image/back.jpg'); /* Remplace par ton chemin d'image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding: 40px;
+}
+
+/* Bouton d'ajout */
 .Btn_add {
     width: fit-content;
     margin-bottom: 20px;
-    background-color: #2bc48a;
+    background-color: #2bc48a; /* Vert foncé pour le bouton */
     padding: 5px 20px;
     color: #fff;
     display: flex;
     align-items: center;
-    text-align: 0;
+    text-align: center;
     border-radius: 6px;
-    text-decoration: 0;
+    text-decoration: none;
 }
+
 .Btn_add img {
     margin-right: 5px;
     height: 20px;
 }
-/*tableau*/
+
+/* Tableau */
 table {
-    border-collapse:collapse;
+    border-collapse: collapse;
     color: #404040;
+    width: 100%;
+    max-width: 900px; /* Limite la largeur du tableau */
 }
+
 th {
     font-size: 16px;
     border-bottom: 3px solid #ffcb61;
     padding: 5px 20px;
     font-weight: 500;
+    color: #1E293B; /* Bleu nuit pour les titres */
 }
+
 td {
     font-weight: 400;
     padding: 5px 30px;
     font-size: 14px;
     text-align: center;
-
+    color: #333; /* Gris foncé pour les valeurs */
 }
+
 img {
     height: 25px;
-   
 }
-tr:nth-child(2n){
+
+tr:nth-child(2n) {
     background-color: #f6f8f8;
 }
+
 tr:nth-child(2n) td {
     border-bottom: 1px solid #e0e0e0;
-    border-top:  1px solid #e0e0e0;
+    border-top: 1px solid #e0e0e0;
 }
-/*Form CSS*/
+
+/* Formulaire */
 .form {
     background-color: #f6f8f8;
     padding: 25px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     border-radius: 6px;
+    width: 100%;
+    max-width: 400px; /* Limite la largeur du formulaire */
 }
+
 .form form {
     display: flex;
-    width: 350px;
     flex-direction: column;
+    width: 100%;
 }
+
 .back_btn {
-    color: #2bc48a;
-    text-decoration: 0;
+    color: #2bc48a; /* Vert pour le bouton retour */
+    text-decoration: none;
     display: flex;
     align-items: center;
 }
+
 .back_btn img {
     height: 16px;
-    margin-right:5px ;
+    margin-right: 5px;
 }
+
 h2 {
     margin: 10px 0;
     font-weight: 500;
     text-transform: uppercase;
+    color: #1E293B; /* Bleu nuit pour les titres */
 }
+
 .erreur_message {
     color: red;
     font-size: 12px;
 }
+
 label {
     margin-top: 5px;
     text-transform: uppercase;
+    color: #333; /* Gris foncé pour les labels */
 }
-input{
+
+input {
     padding: 5px;
     border: 1px solid #999;
     outline: 0;
     margin-top: 2px;
 }
-input:focus{
-    border: 1px solid #ffcb61;
+
+input:focus {
+    border: 1px solid #ffcb61; /* Jaune pour le focus */
 }
-input[type="submit"]{
+
+input[type="submit"] {
     margin-top: 25px;
-    background-color: #2bc48a;
+    background-color: #2bc48a; /* Vert pour le bouton */
     border: 1px solid #2bc48a;
     cursor: pointer;
     color: #fff;
     text-transform: uppercase;
+}
+
+/* Responsivité */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    .Btn_add {
+        width: 100%;
+        padding: 10px;
+    }
+
+    table {
+        font-size: 12px;
+        padding: 10px;
+    }
+
+    .form {
+        padding: 15px;
+    }
+
+    .form form {
+        width: 100%;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
 }

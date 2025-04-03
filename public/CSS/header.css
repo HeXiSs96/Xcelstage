@@ -9,7 +9,7 @@
 header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-between; /* Assure une répartition de l'espace entre les éléments */
     padding: 20px 5%;
     background-color: #1E293B; /* Bleu nuit */
     height: 80px;
@@ -21,13 +21,15 @@ header {
 .logo {
     display: flex;
     align-items: center;
+    margin-left: 50px; /* Décale le logo vers la droite */
 }
 
+/* Logo Image */
 .logo img {
     width: 5vh;
     max-width: 100px;
     height: auto;
-    opacity: 0.8;
+    opacity: 0.;
 }
 
 /* Navigation */

@@ -9,25 +9,25 @@ error_reporting(E_ALL);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/CSS/header.css"> <!-- Le fichier CSS spécifique au header -->
+    <link rel="stylesheet" href="/Xcelstage/public/CSS/header.css"> <!-- Le fichier CSS spécifique au header -->
     <title>XcelStage</title>
-    <link rel="icon" type="image/png" href="image/logo-png.png">
+    <link rel="icon" type="image/png" href="/Xcelstage/public/image/logo-png.png">
 </head>
 <body>
 <header>
     <!-- Logo -->
     <div class="logo">
-        <img src="image/logo-png.png" alt="Logo XcelStage">
+        <img src="/Xcelstage/public/image/logo-png.png" alt="Logo XcelStage">
     </div>
 
     <!-- Navigation -->
     <nav>
         <ul>
         <?php
-            if ($_SESSION['Role'] == "Administrateur" || $_SESSION['Role'] == "Pilote") : ?>
+            if (isset($_SESSION['Role']) && ($_SESSION['Role'] == "Administrateur" || $_SESSION['Role'] == "Pilote")) : ?>
                 <li><a href="../app/views/admin_dashboard.php">Dashboard</a></li>
             <?php endif; ?>
-            <li><a href="../public/index.php">Accueil</a></li>
+            <li><a href="/Xcelstage/public/index.php">Accueil</a></li>
             <li><a href="entreprises.php">Entreprises</a></li>
             <li><a href="offres.php">Offres</a></li>
             <?php

@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="/Xcelstage/public/CSS/consult.css">
 </head>
 <body>
-    <div class="container">
+    <?php include '/Xcelstage/app/views/header.php'; ?>
+    
+    <main class="container">
         <div class="profile-card">
             <h2 id="user-name">Nom de l'entreprise</h2>
             <p><strong>Email :</strong> <span id="user-email">email@example.com</span></p>
@@ -24,6 +26,8 @@
                 <p><strong>Site Web :</strong> <span id="company-website"><a href="http://www.entreprise.com" target="_blank">www.entreprise.com</a></span></p>
             </div>
         </div>
-    </div>
+    </main>
+    
+    <?php include '/Xcelstage/app/views/footer.php'; ?>
 </body>
 </html>
