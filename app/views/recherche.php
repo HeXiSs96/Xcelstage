@@ -31,7 +31,7 @@ global $pdo;
     ❤️ Voir mes favoris
 </a>
 
-<a href="pageoffre.php?action=candidatures" style="text-decoration: none; font-size: 18px; background: #f0f0f0; padding: 8px 12px; border-radius: 8px; display: inline-block; color: #800080;">
+<a href="../controllers/pageoffre.php?action=candidatures" style="text-decoration: none; font-size: 18px; background: #f0f0f0; padding: 8px 12px; border-radius: 8px; display: inline-block; color: #800080;">
     📨 Voir mes candidatures
 </a>
 

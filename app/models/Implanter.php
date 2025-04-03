@@ -41,6 +41,7 @@ class Implanter {
         return $resultat ? $resultat['ID_Ville'] : null;
     }
 
+
 }
 
 ?>

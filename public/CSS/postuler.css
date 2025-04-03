@@ -1,0 +1,103 @@
+/* Palette */
+:root {
+    --bleu-nuit: #1E293B;
+    --blanc-casse: #F8FAFC;
+    --bleu-acier: #3B82F6;
+    --vert-fonce: #047857;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Fond avec image */
+body {
+    font-family: Arial, sans-serif;
+    background: url('/Xcelstage/public/image/back.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--blanc-casse);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Main centré */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Conteneur formulaire */
+.form-container {
+    background-color: rgba(30, 41, 59, 0.9); /* Bleu nuit avec opacité */
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    max-width: 600px;
+    width: 100%;
+}
+
+/* Titres */
+.form-container h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    text-align: center;
+    color: var(--bleu-acier);
+}
+
+/* Champs de formulaire */
+form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+form input[type="file"],
+form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: var(--blanc-casse);
+    color: #000;
+}
+
+form textarea {
+    resize: vertical;
+}
+
+/* Bouton */
+form button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--vert-fonce);
+    color: var(--blanc-casse);
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #065f46;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 1rem;
+    }
+
+    form button {
+        font-size: 1rem;
+    }
+}

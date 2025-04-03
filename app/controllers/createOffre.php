@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     try {
         $offreModel->createOffre($TitreO, $DateDebut, $DateFin, $EtatOffre, $DescOffre, $RemunerationO, $ID_Entreprise);
-        header("Location: ../views/admin_dashboard.php");
+        header("Location: ../views/index_offre.php");
         exit();
     } catch (PDOException $e) {
         if ($e->getCode() == 23000) { // Code SQL pour violation d'unicité

@@ -13,7 +13,7 @@ class Offre {
         return $requete->execute([$TitreO, $DateDebut, $DateFin, $EtatOffre, $DescOffre, $RemunerationO, $ID_Entreprise]);
     }
 
-    public function supprimerOffre($ID_Entreprise){
+    public function supprimerOffre($ID_Offre){
         $requete = $this->pdo->prepare("DELETE FROM Offres WHERE ID_Offre = ?");
         return $requete->execute([$ID_Offre]);
     }

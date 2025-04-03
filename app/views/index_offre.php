@@ -81,8 +81,8 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
                             <td><?=$offre['RemunerationO']?> €</td>
                             <td><?=$nb_postulant?></td>
                             <td><?=$NomE?></td>
-                            <td><a href="../controllers/OffreDetail_Controller.php?id=<?=$offre['ID_Offre']?>"><button>Consulter</button></a></td>
-                            <td><a href="../controllers/editOffre.php?id=<?=$offre['ID_Offre']?>"><img src="/Xcelstage/public/image/pen.png"></a></td>
+                            <td><a href="../controllers/consult_offre.php?id=<?=$offre['ID_Offre']?>"><button>Consulter</button></a></td>
+                            <td><a href="create_offre.php?id=<?=$offre['ID_Offre']?>"><img src="/Xcelstage/public/image/pen.png"></a></td>
                             <td><a href="../controllers/deleteOffre.php?id=<?php echo $offre['ID_Offre']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cette offre ?');"><img src="/Xcelstage/public/image/trash.png"></a></td>
                         </tr>
             <?php endforeach; ?>

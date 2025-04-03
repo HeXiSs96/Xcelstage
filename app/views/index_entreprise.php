@@ -13,9 +13,7 @@ require_once '../models/Implanter.php';
 
 if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
     header("Location: /Xcelstage/public/");
-    //echo $_SESSION['Role'];
     exit();
-
 } else {
     $entrepriseModel = new Entreprise($pdo);
     $appartenirModel = new Appartenir($pdo);
@@ -23,12 +21,22 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
     $implanterModel = new Implanter($pdo);
     $villeModel = new Ville($pdo);
 
-    $entreprises = $entrepriseModel->getAllEntreprises();
+    // Pagination : déterminer la page actuelle et l'offset
+    $limit = 10;  // Nombre d'entreprises par page
+    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Page actuelle
+    $offset = ($page - 1) * $limit; // Calculer l'offset
+
+    // Récupérer les entreprises avec la pagination
+    $entreprises = $entrepriseModel->getEntreprisesWithPagination($limit, $offset);
+
+    // Total des entreprises pour calculer le nombre total de pages
+    $totalEntreprises = $entrepriseModel->getTotalEntreprises();
+    $totalPages = ceil($totalEntreprises / $limit); // Nombre total de pages
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -64,12 +72,9 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
-            <br/>
             <?php foreach ($entreprises as $entreprise): ?>
             <tr>
-            
                 <?php
-                //var_dump($entreprise);
                 $appartenir = $appartenirModel->getbyID_Entreprise($entreprise['ID_Entreprise']);
                 $secteur = $secteurModel->getSecteurAbyID($appartenir);
                 $implanter = $implanterModel->getbyID_Entreprise($entreprise['ID_Entreprise']);
@@ -86,8 +91,26 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
                 <td><a href="../controllers/deleteEntreprise.php?id=<?php echo $entreprise['ID_Entreprise']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cette entreprise ?');"><img src="/Xcelstage/public/image/trash.png"></a></td>
             </tr>
             <?php endforeach; ?>
-
         </table>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <?php if ($page > 1): ?>
+                <a href="?page=1">Première</a>
+                <a href="?page=<?php echo $page - 1; ?>">Précédente</a>
+            <?php endif; ?>
+
+            <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                <a href="?page=<?php echo $i; ?>" class="<?= $i === $page ? 'active' : ''; ?>">
+                    <?php echo $i; ?>
+                </a>
+            <?php endfor; ?>
+
+            <?php if ($page < $totalPages): ?>
+                <a href="?page=<?php echo $page + 1; ?>">Suivante</a>
+                <a href="?page=<?php echo $totalPages; ?>">Dernière</a>
+            <?php endif; ?>
+        </div>
     </div>
 
     <script>

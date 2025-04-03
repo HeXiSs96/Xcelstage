@@ -1,17 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     position: relative;
-    background-color: #f4f4f9;
+    background-color: #F8FAFC; /* Blanc cassé pour l'arrière-plan */
     padding: 20px;
 }
 
@@ -26,7 +28,7 @@ body {
 
 /* Card du profil utilisateur */
 .profile-card {
-    background-color: white;
+    background-color: #FFFFFF; /* Fond blanc pour la carte */
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -47,48 +49,50 @@ body {
 /* Titre du profil */
 h2 {
     font-size: 1.5rem;
-    color: #333;
+    color: #1E293B; /* Bleu nuit pour les titres */
     margin-bottom: 10px;
 }
 
 /* Infos utilisateur */
 .profile-card p {
     font-size: 1rem;
-    color: #555;
+    color: #3B82F6; /* Bleu acier pour le texte */
     margin: 8px 0;
     font-weight: 400;
-}
-
-.profile-card strong {
-    font-weight: bold;
-    color: #333;
-}
-
-/* Cadre autour des informations */
-.profile-card p {
-    background-color: #f6f8f8;
+    background-color: #F8FAFC; /* Fond blanc cassé */
     padding: 10px;
     border-radius: 6px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-    margin: 8px 0;
 }
 
+/* Texte en gras */
+.profile-card strong {
+    font-weight: bold;
+    color: #1E293B; /* Bleu nuit */
+}
+
+/* Sous-textes */
 .profile-card span {
     font-weight: 400;
-    color: #666;
+    color: #3B82F6; /* Bleu acier */
 }
 
 /* Style pour les boutons et actions */
 .Btn_add {
     width: fit-content;
     margin-bottom: 20px;
-    background-color: #2bc48a;
+    background-color: #047857; /* Vert foncé */
     padding: 5px 20px;
     color: #fff;
     display: flex;
     align-items: center;
     border-radius: 6px;
     text-decoration: none;
+    transition: 0.3s ease-in-out;
+}
+
+.Btn_add:hover {
+    background-color: #3B82F6; /* Bleu acier au survol */
 }
 
 .Btn_add img {

@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $ImplanterModel->modifierImplanter($ID_Entreprise, $NomV);
         $AppartenirModel->modifierAppartenir($ID_Entreprise, $NomS);
 
-         header("Location: ../views/admin_dashboard.php");
+         header("Location: ../views/index_entreprise.php");
          exit();
          } else {
              echo "Erreur : format de l'adresse email invalide";

@@ -1,0 +1,92 @@
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F8FAFC; /* Blanc cassé pour le fond */
+}
+
+/* Mise en forme du main */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100vh - 80px); /* Ajuste la hauteur pour laisser de la place à l'en-tête */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(../image/back.jpg); /* Image en fond avec un dégradé */
+    background-size: cover;
+    background-position: center;
+    color: #F8FAFC; /* Texte en blanc cassé pour contraster avec l'image */
+    text-align: center;
+    padding: 0 20px; /* Ajout de padding pour les petits écrans */
+}
+
+/* Style du titre */
+main h1 {
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    color: #F8FAFC; /* Blanc cassé pour le titre */
+}
+
+/* Conteneur des boutons */
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    flex-wrap: wrap; /* Permet aux boutons de se réorganiser sur plusieurs lignes sur petits écrans */
+    gap: 20px; /* Espacement entre les boutons */
+}
+
+/* Style des boutons */
+.buttons .btn {
+    background-color: #3B82F6; /* Bleu acier pour les boutons */
+    color: white;
+    text-decoration: none;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: 2px solid #3B82F6; /* Bleu acier pour la bordure */
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    min-width: 150px; /* Largeur minimale pour les boutons */
+    text-align: center; /* Centrer le texte à l'intérieur des boutons */
+}
+
+/* Effet au survol des boutons */
+.buttons .btn:hover {
+    background-color: white;
+    color: #3B82F6; /* Bleu acier pour le texte sur hover */
+    border-color: #047857; /* Vert foncé pour la bordure au survol */
+}
+
+/* Responsive Design pour les écrans petits et moyens */
+@media (max-width: 768px) {
+    /* Ajuste la taille du titre sur petits écrans */
+    main h1 {
+        font-size: 2rem;
+    }
+
+    /* Les boutons se disposent verticalement et prennent plus de largeur */
+    .buttons {
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .buttons .btn {
+        width: 80%; /* Les boutons prennent 80% de la largeur disponible */
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajuste encore plus pour les très petits écrans */
+    main h1 {
+        font-size: 1.6rem;
+        margin-bottom: 20px;
+    }
+
+    /* Les boutons deviennent plus grands pour mieux s'adapter */
+    .buttons .btn {
+        padding: 12px 25px;
+        font-size: 1rem;
+    }
+}
