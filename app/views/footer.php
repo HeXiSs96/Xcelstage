@@ -22,9 +22,8 @@
             </div>
             <div class="footerNav">
                 <ul>
-                    <li><a href="#">Accueil</a></li>
                     <li><a href="#">News</a></li>
-                    <li><a href="#">A propos</a></li>
+                    <li><a href="../app/views/mention.php">Mentions légales</a></li>
                     <li><a href="../app/views/contact.php">Contactez-nous</a></li>
                     <li><a href="#">Notre équipe</a></li>
                 </ul>

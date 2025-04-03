@@ -1,30 +1,27 @@
-<?php
-// Inclure l'en-tête pour éviter la répétition sur plusieurs pages
+<?php 
+// Inclure l'en-tête
 include("../app/views/header.php");
 ?>
 
-<!-- Lien vers le fichier CSS -->
+<!-- Liens CSS -->
 <link rel="stylesheet" href="/Xcelstage/public/CSS/style.css">
 
 <main>
-    <!-- Contenu spécifique à la page d'accueil -->
     <div class="principale">
         <div class="titre">
-            <h1>XcelStage</h1>
+            <h1>Bienvenue sur XcelStage</h1>
         </div>
         <div class="bouton">
-
             <a href="../app/views/recherche.php" class="btn">RECHERCHER UNE OFFRE</a>
-
             <a href="../app/views/EntrepriseView.php" class="btn">RECHERCHER UNE ENTREPRISE</a>
         </div>
     </div>
 </main>
 
 <?php
-// Inclure le pied de page pour éviter la répétition sur plusieurs pages
+// Inclure le pied de page
 include("../app/views/footer.php");
 ?>
 
-<script src="/public/JS/script.js"></script>
- 
+<!-- Liens JavaScript -->
+<script src="/Xcelstage/public/JS/script.js"></script>
