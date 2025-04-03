@@ -9,7 +9,7 @@ error_reporting(E_ALL);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/CSS/header.css"> <!-- Le fichier CSS spécifique au header -->
+    <link rel="stylesheet" href="/Xcelstage/public/CSS/header.css"> 
     <title>XcelStage</title>
     <link rel="icon" type="image/png" href="image/logo-png.png">
 </head>

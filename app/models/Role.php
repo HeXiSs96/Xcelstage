@@ -15,5 +15,10 @@ class Role {
         return $result ? $result['NomRole'] : null;
     }
     
+    public function getAllRoles(){
+        $requete = $this->pdo->prepare("SELECT * FROM Role");
+        $requete->execute();
+        return $requete->fetchAll(PDO::FETCH_ASSOC);
+    }
 }
 ?>

@@ -27,6 +27,12 @@ class Utilisateur {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 
+    public function getUserByID($ID_Utilisateur) {
+        $stmt = $this->pdo->prepare("SELECT * FROM Utilisateur WHERE ID_Utilisateur = ?");
+        $stmt->execute([$ID_Utilisateur]);
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function getUserByNom($NomU) {
         $stmt = $this->pdo->prepare("SELECT * FROM Utilisateur WHERE NomU = ?");
         $stmt->execute([$EmailU]);

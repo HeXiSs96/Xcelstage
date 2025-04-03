@@ -1,4 +1,4 @@
-<?php include  "/header.php"; ?>
+<?php include  "header.php"; ?>
 
 <main>
     <h1>Bienvenue dans la gestion de XcelStage</h1>

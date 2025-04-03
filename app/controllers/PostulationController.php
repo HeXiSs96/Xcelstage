@@ -1,8 +1,15 @@
 <?php
 
-require_once __DIR__ . '/../models/Database.php';
 
 class PostulationController {
+
+    private $pdo;
+
+    public function __construct($pdo){
+        $this->pdo = $pdo;
+        require_once __DIR__ . '../models/Offre.php';
+    }
+
     public function postuler() {
         $pdo = Database::connect();
 

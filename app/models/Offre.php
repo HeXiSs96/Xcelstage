@@ -24,8 +24,7 @@ class Offre {
         return $requete->fetchAll(PDO::FETCH_ASSOC);
     }
 
-    public static function rechercher($motcle = '', $ville = '') {
-        $pdo = Database::connect();
+    public function rechercher($motcle = '', $ville = '') {
     
         $sql = "
             SELECT o.ID_Offre, o.TitreO, o.DescOffre, o.RemunerationO, o.DateDebut, o.DateFin,
@@ -72,7 +71,7 @@ class Offre {
     
         $sql .= " ORDER BY o.DateDebut DESC";
     
-        $stmt = $pdo->prepare($sql);
+        $stmt = $this->pdo->prepare($sql);
         $stmt->execute($params);
     
         return $stmt->fetchAll(PDO::FETCH_ASSOC);

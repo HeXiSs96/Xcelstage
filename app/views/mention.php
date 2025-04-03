@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions Légales - XcelStage</title>
-    <link rel="stylesheet" href="../public/CSS/mention.css"> <!-- Lien vers ton fichier CSS des mentions légales -->
+    <link rel="stylesheet" href="/Xcelstage/public/CSS/mention.css"> <!-- Lien vers ton fichier CSS des mentions légales -->
 </head>
 <body>
     <div class="container">

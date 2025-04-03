@@ -1,9 +1,7 @@
 <?php
-require_once __DIR__ . '/../models/Database.php';
 
-class WishlistController {
-    public function index() {
-        $pdo = Database::connect();
+require_once '/var/www/html/Xcelstage/config/database.php';
+
         $idUser = 1; // À remplacer par $_SESSION['id'] plus tard
 
         $stmt = $pdo->prepare("
@@ -31,6 +29,6 @@ class WishlistController {
         $stmt->execute([':user' => $idUser]);
         $offres = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        require_once __DIR__ . '/../views/wishlist.php';
-    }
-}
+        require_once $_SERVER['DOCUMENT_ROOT'] . '/Xcelstage/app/views/wishlist.php';
+
+        ?>

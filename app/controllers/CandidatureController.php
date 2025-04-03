@@ -1,12 +1,20 @@
 <?php
-require_once __DIR__ . '/../models/Database.php';
+
 
 class CandidatureController {
+
+    private $pdo;
+
+    public function __construct($pdo){
+        $this->pdo = $pdo;
+        require_once '../models/Offre.php';
+    }
+
     public function index() {
-        $pdo = Database::connect();
+        
         $idUser = 1;
 
-        $stmt = $pdo->prepare("
+        $stmt = $this->pdo->prepare("
             SELECT o.TitreO, o.DescOffre, o.RemunerationO, o.DateDebut, o.DateFin,
                    e.NomE AS entreprise,
                    c.Date_Candidature, c.Lettre_Motivation,

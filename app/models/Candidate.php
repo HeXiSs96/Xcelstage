@@ -14,6 +14,11 @@ class Candidate {
         return $requete->execute([$ID_Offre]);
     }
 
+    public function supprimerCandidatebyUt($ID_Utilisateur){
+        $requete = $this->pdo->prepare("DELETE FROM Candidate WHERE ID_Utilisateur = ?");
+        return $requete->execute([$ID_Utilisateur]);
+    }
+
     public function getNombreCandidaturesbyOffre($ID_Offre) {
         $requete = $this->pdo->prepare("SELECT COUNT(*) as total FROM Candidatures WHERE ID_Offre = ?");
         $requete->execute([$ID_Offre]);

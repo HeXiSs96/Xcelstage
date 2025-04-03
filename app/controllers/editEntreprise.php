@@ -32,7 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     try {
         if (filter_var($EmailE, FILTER_VALIDATE_EMAIL)) {
-        $EntrepriseModel->modifierEntreprise($ID_Entreprise, $NomE, $TelephoneE, $SiteWebE, $EmailE);         $ImplanterModel->modifierImplanter($ID_Entreprise, $NomV);
+        $EntrepriseModel->modifierEntreprise($ID_Entreprise, $NomE, $TelephoneE, $SiteWebE, $EmailE);         
+        $ImplanterModel->modifierImplanter($ID_Entreprise, $NomV);
         $AppartenirModel->modifierAppartenir($ID_Entreprise, $NomS);
 
          header("Location: ../views/admin_dashboard.php");

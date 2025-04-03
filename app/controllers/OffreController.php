@@ -1,15 +1,20 @@
 <?php
 
-require_once __DIR__ . '/../models/Offre.php';
-require_once __DIR__ . '/../models/Database.php';
+
 
 class OffreController {
+    private $pdo;
+
+    public function __construct($pdo){
+        $this->pdo = $pdo;
+        require_once '../models/Offre.php';
+    }
 
     public function recherche() {
         $motcle = $_GET['motcle'] ?? '';
         $ville = $_GET['ville'] ?? '';
-        $pdo = Database::connect(); // 👈 ajoute cette ligne
-        $offres = Offre::rechercher($motcle, $ville);
+        $offreModel = new Offre($this->pdo);
+        $offres = $offreModel->rechercher($motcle, $ville);
 
         // On passe aussi $motcle et $ville à la vue pour pré-remplir les champs
         require_once __DIR__ . '/../views/recherche.php';
@@ -33,9 +38,7 @@ class OffreController {
     
 
     public function wishlist() {
-        $pdo = Database::connect(); // 💾 on récupère PDO
-        $GLOBALS['pdo'] = $pdo;     // 📦 on le passe à la vue
-    
+        
         require_once __DIR__ . '/../views/wishlist.php';
     }
     

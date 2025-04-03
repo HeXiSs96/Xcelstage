@@ -70,7 +70,7 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
                     <td><?=$role?></td>
                     <td><a href="../views/consult_ut.php?id=<?=$utilisateur['ID_Utilisateur']?>"><button>Consulter</button></a></td>
                     <td><a href="../controllers/editUt.php?id=<?=$utilisateur['ID_Utilisateur']?>"><img src="/Xcelstage/public/image/pen.png"></a></td>
-                    <td><a href="../controllers/deleteUtilisateur.php?id=<?php echo $utilisateur['ID_Utilisateur']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');"><img src="/Xcelstage/public/image/trash.png"></a></td>
+                    <td><a href="../controllers/deleteUt.php?id=<?php echo $utilisateur['ID_Utilisateur']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cet utilisateur ?');"><img src="/Xcelstage/public/image/trash.png"></a></td>
                 </tr>
             <?php endforeach; ?>
         </table>

@@ -1,5 +1,5 @@
 <h1>📨 Mes candidatures en cours</h1>
-<a href="index.php?action=recherche">🔙 Retour à la recherche</a>
+<a href="pageoffre.php?action=recherche">🔙 Retour à la recherche</a>
 <br><br>
 
 <?php if (!empty($candidatures)): ?>
