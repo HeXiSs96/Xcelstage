@@ -29,6 +29,13 @@ class Entreprise {
         return $requete->execute();
     }
 
+    public function getNameEntreprisebyID($ID_Entreprise){
+        $requete = $this->pdo->prepare("SELECT NomE FROM Entreprises WHERE ID_Entreprise = ?");
+        $requete->execute([$ID_Entreprise]);
+        $resultat = $requete->fetch(PDO::FETCH_ASSOC);
+        return $resultat ? $resultat['NomE'] : null;
+    }
+
     public function getAllEntreprises(){
         $requete = $this->pdo->prepare("SELECT * FROM Entreprises");
         $requete->execute();

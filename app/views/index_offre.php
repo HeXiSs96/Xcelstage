@@ -1,3 +1,31 @@
+<?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
+session_start();
+
+require_once '/var/www/html/Xcelstage/config/database.php';
+require_once '../models/Entreprise.php';
+require_once '../models/Candidate.php';
+require_once '../models/Offre.php';
+
+
+
+if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
+    header("Location: /Xcelstage/public/");
+    //echo $_SESSION['Role'];
+    exit();
+
+} else {
+    $entrepriseModel = new Entreprise($pdo);
+    $candidateModel = new Candidate($pdo);
+    $offreModel = new Offre($pdo);
+    
+    $offres = $offreModel->getAllOffres();
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -34,46 +62,30 @@
                 <th>Description</th>
                 <th>Rémunération</th>
                 <th>Nombre de postulants</th>
+                <th>Entreprise</th>
                 <th>Consulter</th>
                 <th>Modifier</th>
                 <th>Supprimer</th>
             </tr>
-            <?php 
-                include_once "connexion.php";
-
-                // Vérifier si une recherche a été effectuée
-                $search = isset($_GET['search']) ? mysqli_real_escape_string($con, $_GET['search']) : '';
-
-                // Requête SQL avec recherche si un terme est saisi
-                $sql = "SELECT * FROM Offre";
-                if (!empty($search)) {
-                    $sql .= " WHERE titre LIKE '%$search%' 
-                              OR etat LIKE '%$search%' 
-                              OR description LIKE '%$search%'";
-                }
-
-                $req = mysqli_query($con, $sql);
-                if(mysqli_num_rows($req) == 0){
-                    echo "<tr><td colspan='10'>Aucune offre trouvée !</td></tr>";
-                } else {
-                    while($row = mysqli_fetch_assoc($req)){
-                        ?>
+            <?php foreach ($offres as $offre): ?>
                         <tr>
-                            <td><?=$row['titre']?></td>
-                            <td><?=$row['date_debut']?></td>
-                            <td><?=$row['date_fin']?></td>
-                            <td><?=$row['etat']?></td>
-                            <td><?=$row['description']?></td>
-                            <td><?=$row['remuneration']?> €</td>
-                            <td><?=$row['nb_postulants']?></td>
-                            <td><a href="view_offre.php?id=<?=$row['id']?>"><img src="images/view.png"></a></td>
-                            <td><a href="edit_offre.php?id=<?=$row['id']?>"><img src="images/pen.png"></a></td>
-                            <td><a href="delete_offre.php?id=<?=$row['id']?>" onclick="return confirm('Voulez-vous vraiment supprimer cette offre ?');"><img src="images/trash.png"></a></td>
+                        <?php 
+                        $NomE = $entrepriseModel->getNameEntreprisebyID($offre['ID_Entreprise']);
+                        $nb_postulant = $entrepriseModel->getNameEntreprisebyID($offre['ID_Entreprise']); 
+                        ?>
+                            <td><?=$offre['TitreO']?></td>
+                            <td><?=$offre['DateDebut']?></td>
+                            <td><?=$offre['DateFin']?></td>
+                            <td><?=$offre['EtatOffre']?></td>
+                            <td><?=$offre['DescOffre']?></td>
+                            <td><?=$offre['RemunerationO']?> €</td>
+                            <td><?=$nb_postulant?></td>
+                            <td><?=$NomE?></td>
+                            <td><a href="../controllers/OffreDetail_Controller.php?id=<?=$offre['ID_Offre']?>"><button>Consulter</button></a></td>
+                            <td><a href="../controllers/editOffre.php?id=<?=$offre['ID_Offre']?>"><img src="/Xcelstage/public/image/pen.png"></a></td>
+                            <td><a href="../controllers/deleteOffre.php?id=<?php echo $offre['ID_Offre']; ?>" onclick="return confirm('Voulez-vous vraiment supprimer cette offre ?');"><img src="/Xcelstage/public/image/trash.png"></a></td>
                         </tr>
-                        <?php
-                    }
-                }
-            ?>
+            <?php endforeach; ?>
         </table>
     </div>
 

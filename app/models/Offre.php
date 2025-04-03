@@ -13,6 +13,16 @@ class Offre {
         return $requete->execute([$TitreO, $DateDebut, $DateFin, $EtatOffre, $DescOffre, $RemunerationO, $ID_Entreprise]);
     }
 
+    public function supprimerOffre($ID_Entreprise){
+        $requete = $this->pdo->prepare("DELETE FROM Offres WHERE ID_Offre = ?");
+        return $requete->execute([$ID_Offre]);
+    }
+
+    public function getAllOffres(){
+        $requete = $this->pdo->prepare("SELECT * FROM Offres");
+        $requete->execute();
+        return $requete->fetchAll(PDO::FETCH_ASSOC);
+    }
 
     public static function rechercher($motcle = '', $ville = '') {
         $pdo = Database::connect();

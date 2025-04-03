@@ -14,6 +14,12 @@ class Utilisateur {
         return $requete->execute([$NomU, $PrenomU, $DateNaissance, $hashedPassword, $EmailU, $Role]);
     }
 
+    public function getAllUtilisateurs(){
+        $requete = $this->pdo->prepare("SELECT * FROM Utilisateur");
+        $requete->execute();
+        return $requete->fetchAll(PDO::FETCH_ASSOC);
+    }
+
     // Méthode pour récupérer les données de l'utilisateur à partir de son mail
     public function getUserByEmail($EmailU) {
         $stmt = $this->pdo->prepare("SELECT * FROM Utilisateur WHERE EmailU = ?");
