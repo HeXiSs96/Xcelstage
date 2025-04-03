@@ -1,7 +1,19 @@
 <?php
-require_once __DIR__ . '/Database.php';
 
 class Offre {
+
+    private $pdo; //Cet attribut contient la référence vers notre base de données définie dans "/config/database.php"
+
+    public function __construct($pdo){
+        $this->pdo = $pdo;
+    }
+
+    public function createOffre($TitreO, $DateDebut, $DateFin, $EtatOffre, $DescOffre, $RemunerationO, $ID_Entreprise){
+        $requete = $this->pdo->prepare("INSERT INTO Offres (TitreO, DateDebut, DateFin, EtatOffre, DescOffre, RemunerationO, ID_Entreprise) VALUES (?, ?, ?, ?, ?, ?, ?)");
+        return $requete->execute([$TitreO, $DateDebut, $DateFin, $EtatOffre, $DescOffre, $RemunerationO, $ID_Entreprise]);
+    }
+
+
     public static function rechercher($motcle = '', $ville = '') {
         $pdo = Database::connect();
     

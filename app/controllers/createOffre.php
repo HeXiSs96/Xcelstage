@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 
 require_once '/var/www/html/Xcelstage/config/database.php';
 require_once '../models/Offre.php';
+require_once '../models/Entreprise.php';
 
 
 
@@ -15,18 +16,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $DateDebut = trim(htmlspecialchars($_POST['date_debut']));
     $DateFin = trim(htmlspecialchars($_POST['date_fin']));
     $EtatOffre = trim(htmlspecialchars($_POST['etat']));
-    $DescOffre = trim(htmlspecialchars($_POST['desc']));
+    $DescOffre = trim(htmlspecialchars($_POST['description']));
     $RemunerationO = trim(htmlspecialchars($_POST['remuneration']));
-    $ID_Entreprise = trim(htmlspecialchars($_POST['id_entreprise']));
+    $ID_Entreprise = trim(htmlspecialchars($_POST['nom_entreprise']));
     
-
     
-    $OffreModel = new Offre($pdo);
+    $offreModel = new Offre($pdo);
 
 
     
     try {
-        $OffreModel->createOffre($TitreO, $DateDebut, $DateFin, $EtatOffre, $DescOffre, $RemunerationO, $ID_Entreprise);
+        $offreModel->createOffre($TitreO, $DateDebut, $DateFin, $EtatOffre, $DescOffre, $RemunerationO, $ID_Entreprise);
         header("Location: ../views/admin_dashboard.php");
         exit();
     } catch (PDOException $e) {

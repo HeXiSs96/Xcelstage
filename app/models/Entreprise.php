@@ -43,16 +43,18 @@ class Entreprise {
     }
 
     public function getEntreprisebynom($NomE) {
-        $requete = $this->pdo->prepare("SELECT * FROM Entreprises WHERE LOWER(NomE) LIKE LOWER('%?%');");
-        return $requete->execute($NomE);
+        $requete = $this->pdo->prepare("SELECT * FROM Entreprises WHERE LOWER(NomE) LIKE LOWER(?)");
+        $requete->execute(["%$NomE%"]);
+        $resultat = $requete->fetch(PDO::FETCH_ASSOC);
+        return $resultat ? $resultat['ID_Entreprise'] : null;
     }
 
     public function getEntreprisebysecteur($Secteur) {
         $requete = $this->pdo->prepare("SELECT * FROM Entreprises WHERE LOWER(NomE) LIKE LOWER('%?%');");
-        return $requete->execute($NomE);
+        return $requete->execute([$Secteur]);
     }
 
-    public function searchNameLocation($name, $location){
+    public function searchNameLocation($name, $locatison){
         $sql = "SELECT * FROM Entreprises WHERE 1=1 ";
         $params=[];
 
