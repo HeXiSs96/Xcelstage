@@ -7,11 +7,10 @@ class PostulationController {
 
     public function __construct($pdo){
         $this->pdo = $pdo;
-        require_once __DIR__ . '../models/Offre.php';
+        require_once '../models/Offre.php';
     }
 
     public function postuler() {
-        $pdo = Database::connect();
 
         $idOffre = $_GET['id'] ?? null;
         if (!$idOffre) {
@@ -19,7 +18,7 @@ class PostulationController {
             return;
         }
 
-        $stmt = $pdo->prepare("
+        $stmt = $this->pdo->prepare("
             SELECT o.TitreO, e.NomE
             FROM Offres o
             JOIN Entreprises e ON o.ID_Entreprise = e.ID_Entreprise

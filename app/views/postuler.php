@@ -9,8 +9,7 @@
 </head>
 <body>
 
-    <!-- Inclusion du header -->
-    <?php include '/Xcelstage/app/views/header.php'; ?>
+    
 
     <!-- Contenu principal -->
     <main>
@@ -34,8 +33,7 @@
         </div>
     </main>
 
-    <!-- Inclusion du footer -->
-    <?php include '/Xcelstage/app/views/footer.php'; ?>
+    
 
 </body>
 </html>
