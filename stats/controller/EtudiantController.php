@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../model/EtudiantModel.php'; // Adjust path if needed
+require_once __DIR__ . '/../model/EtudiantModel.php'; 
 
 class StatistiquesController {
     public function etudiantStats() {
@@ -14,7 +14,7 @@ class StatistiquesController {
             exit;
         }
 
-        $etudiant_id = $_GET['id'] ?? null; // just for testing with a student ID
+        $etudiant_id = $_GET['id'] ?? null; 
         
         if(!$etudiant_id){
             echo "ID etudiant manquant.";
