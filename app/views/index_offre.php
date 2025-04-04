@@ -39,6 +39,7 @@ $candidateModel = new Candidate($pdo);
     <meta charset="UTF-8">
     <title>Gestion des Offres</title>
     <link rel="stylesheet" href="/Xcelstage/public/CSS/style_ut.css">
+    <link rel="icon" type="image/png" href="/Xcelstage/public/image/logo-png.png">
 </head>
 <body>
     <?php include 'header.php'; ?>

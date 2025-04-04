@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <main>
         <div class="form">
-            <a href="index_offre.php" class="back_btn">
+            <a href="../views/index_offre.php" class="back_btn">
                 <img src="/Xcelstage/public/image/arrow.png" alt="Retour"> 
             </a>
 

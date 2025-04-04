@@ -5,6 +5,7 @@
     <title>Résultats de la recherche</title>
     <link rel="stylesheet" href="/Xcelstage/public/CSS/entreprise.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="/Xcelstage/public/image/logo-png.png">
 </head>
 <body>
     <!-- Inclusion du header -->
