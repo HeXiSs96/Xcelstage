@@ -1,158 +1,184 @@
-/*style */
-
-body{
-    font-family: 'Lato', sans-serif;
+/* Palette */
+:root {
+    --bleu-nuit: #1E293B;
+    --blanc-casse: #F8FAFC;
+    --bleu-acier: #3B82F6;
+    --vert-fonce: #047857;
 }
 
+/* Style général */
+body {
+    font-family: 'Lato', sans-serif;
+    background: url('/Xcelstage/public/images/back.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--blanc-casse);
+    margin: 0;
+    min-height: 100vh;
+}
+
+/* Fil d'Ariane */
 ul.breadcrumb {
-    padding : 10px 16px;
+    padding: 10px 16px;
     list-style: none;
     margin-left: 0;
     margin-top: 50px;
     text-align: left;
 }
 ul.breadcrumb li {
-    
-    display : inline;
-    font-size : 18px;
+    display: inline;
+    font-size: 18px;
 }
-
+ul.breadcrumb li a {
+    color: var(--blanc-casse);
+    text-decoration: none;
+}
 ul.breadcrumb li a:hover {
     color: bisque;
     text-decoration: underline;
 }
-
-ul.breadcrumb li+li::before{
+ul.breadcrumb li+li::before {
     padding: 8px;
-    color : black;
+    color: white;
     content: ">";
 }
 
-.searchbar{
+/* Barre de recherche */
+.searchbar {
     display: flex;
-    gap : 50px;
+    flex-wrap: wrap;
+    gap: 30px;
     justify-content: center;
     margin: 30px 0;
 }
-
-.search-input{
-    color: #444;
-    margin: 0 5px;
-}
-
 .search-input {
     display: flex;
     align-items: center;
-    background-color: #eee;
+    background-color: var(--blanc-casse);
     padding: 8px 12px;
     border-radius: 25px;
-    font-family: sans-serif;
     color: #333;
     width: 250px;
 }
-
-.search-input input{
+.search-input input {
     border: none;
     background: transparent;
     outline: none;
     flex: 1;
 }
 
+/* Carte entreprise */
 .company-card {
     width: 200px;
-    background-color: white;
+    background-color: var(--blanc-casse);
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 15px;
     text-align: center;
-    font-family: sans-serif;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    margin: 10px;
-  }
+    color: #000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    margin: 10px auto;
+    transition: transform 0.2s ease;
+}
+.company-card:hover {
+    transform: scale(1.03);
+}
 
+/* Logo circulaire */
 .logo-circle {
     width: 60px;
     height: 60px;
     margin: 0 auto 10px;
     background-color: white;
     display: flex;
-    align-items:start;
+    align-items: start;
     justify-content: center;
     overflow: hidden;
     border: 1px solid #ccc;
-  }
-
-.logo-circle img{
+}
+.logo-circle img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
 }
 
+/* Nom entreprise */
 .company-name {
     font-weight: bold;
-    margin-top: 50px;
-    font-size: 26px;
+    margin-top: 20px;
+    font-size: 22px;
 }
 
-.grid{
+/* Grille responsive */
+.grid {
     display: grid;
-    /*flex-wrap: wrap;*/
-    grid-template-columns:repeat(4,1fr);
-    gap: 50px;
-    justify-content:space-evenly;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
 }
 
-.site-footer{
-    background-color: #153a7d;
+/* Pied de page */
+.site-footer {
+    background-color: var(--bleu-nuit);
     text-align: center;
-    color: white;
+    color: var(--blanc-casse);
     padding: 15px 20px;
-    font-size: 14px;       
+    font-size: 14px;
     font-style: italic;
-    font-family: sans-serif;
-    border-bottom-left-radius: 6px;
-    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     margin-top: 40px;
 }
 
-/* Liste de navigation */
+/* Navbar */
 ul.navbar {
     list-style: none;
     display: flex;
-    justify-content:flex-end;
-    margin-top: 20px;
+    justify-content: flex-end;
     padding: 0;
+    margin-top: 20px;
+    gap: 10px;
+    flex-wrap: wrap;
 }
-
 ul.navbar li a {
     text-decoration: none;
-    color: gray;
+    color: var(--blanc-casse);
     padding: 10px 20px;
     text-transform: uppercase;
     border: 1px solid transparent;
-    margin: 10px;
     font-weight: 500;
-    transition: 0.6s ease;
+    transition: 0.4s ease;
 }
-
-ul.navbar li a:hover {
-    background: white;
-    color: black;
-}
-
+ul.navbar li a:hover,
 ul.navbar li.active a {
-    background: white;
-    color: black;
+    background-color: var(--blanc-casse);
+    color: var(--bleu-nuit);
 }
 
-.main-title{
+/* Titre principal */
+.main-title {
     clear: both;
-
+    text-align: center;
+    margin: 20px 0;
+    font-size: 32px;
+    color: var(--bleu-acier);
 }
 
-.page content{
+/* Contenu de page */
+.page-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding : 0 20px;
+    padding: 0 20px;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .searchbar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    ul.navbar {
+        justify-content: center;
+    }
 }

@@ -1,0 +1,73 @@
+/* Styles généraux */
+body {
+    font-family: 'Lato', sans-serif;
+    background-color: #1E293B; /* Bleu nuit */
+    color: #F8FAFC; /* Blanc cassé */
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 20px auto;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Titre */
+h1 {
+    color: #F8FAFC;
+}
+
+/* Lien retour */
+.back-link {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #3B82F6; /* Bleu acier */
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-link:hover {
+    background-color: #047857; /* Vert foncé */
+}
+
+/* Cartes des offres */
+.offre-card {
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: left;
+}
+
+/* Bouton favoris */
+.wishlist-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #800080;
+    transition: color 0.3s ease;
+}
+
+.wishlist-btn:hover {
+    color: #3B82F6; /* Bleu acier */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    main {
+        padding: 15px;
+    }
+
+    .offre-card {
+        padding: 15px;
+    }
+}

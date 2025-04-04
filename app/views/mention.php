@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mentions Légales - XcelStage</title>
     <link rel="stylesheet" href="/Xcelstage/public/CSS/mention.css"> <!-- Lien vers ton fichier CSS -->
+    <link rel="icon" type="image/png" href="/Xcelstage/public/image/logo-png.png">
 </head>
 
 <body>
 
-    <!-- Inclusion du header -->
-    <?php include '/Xcelstage/app/views/header.php'; ?>
+    <?php include 'header.php'; ?>
 
     <!-- Contenu principal -->
     <main class="container">
@@ -58,8 +58,7 @@
         <p>Les présentes mentions légales sont régies par le droit français. En cas de litige, la juridiction compétente sera celle du lieu du siège social de l’éditeur.</p>
     </main>
 
-    <!-- Inclusion du footer -->
-    <?php include '/Xcelstage/app/views/footer.php'; ?>
+    <?php include 'footer.php'; ?>
 
 </body>
 </html>

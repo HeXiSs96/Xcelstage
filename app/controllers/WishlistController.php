@@ -1,8 +1,10 @@
 <?php
-
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 require_once '/var/www/html/Xcelstage/config/database.php';
 
-        $idUser = 1; // À remplacer par $_SESSION['id'] plus tard
+        $idUser = $_SESSION['ID_Utilisateur']; // À remplacer par $_SESSION['id'] plus tard
 
         $stmt = $pdo->prepare("
             SELECT o.ID_Offre, o.TitreO, o.DescOffre, o.RemunerationO, o.DateDebut, o.DateFin,

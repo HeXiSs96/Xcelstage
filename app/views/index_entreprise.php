@@ -21,31 +21,38 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
     $implanterModel = new Implanter($pdo);
     $villeModel = new Ville($pdo);
 
-    // Pagination : déterminer la page actuelle et l'offset
-    $limit = 10;  // Nombre d'entreprises par page
-    $page = isset($_GET['page']) ? (int)$_GET['page'] : 1; // Page actuelle
-    $offset = ($page - 1) * $limit; // Calculer l'offset
+    // Pagination
+    $entreprisesParPage = 10;
+    $pageActuelle = isset($_GET['page']) ? max(1, (int)$_GET['page']) : 1;
+    $offset = ($pageActuelle - 1) * $entreprisesParPage;
 
-    // Récupérer les entreprises avec la pagination
-    $entreprises = $entrepriseModel->getEntreprisesWithPagination($limit, $offset);
+    // Total d'entreprises
+    $totalEntreprises = $pdo->query("SELECT COUNT(*) FROM Entreprises")->fetchColumn();
+    $totalPages = ceil($totalEntreprises / $entreprisesParPage);
 
-    // Total des entreprises pour calculer le nombre total de pages
-    $totalEntreprises = $entrepriseModel->getTotalEntreprises();
-    $totalPages = ceil($totalEntreprises / $limit); // Nombre total de pages
+    // Récupérer les entreprises
+    $entreprises = $pdo->prepare("SELECT * FROM Entreprises LIMIT :limit OFFSET :offset");
+    $entreprises->bindValue(':limit', $entreprisesParPage, PDO::PARAM_INT);
+    $entreprises->bindValue(':offset', $offset, PDO::PARAM_INT);
+    $entreprises->execute();
+    $entreprises = $entreprises->fetchAll(PDO::FETCH_ASSOC);
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Entreprises</title>
     <link rel="stylesheet" href="/Xcelstage/public/CSS/style_ut.css">
+    <link rel="icon" type="image/png" href="/Xcelstage/public/image/logo-png.png">
     <script src="script_entreprise.js" defer></script>
 </head>
 <body>
+<?php include 'header.php'; ?>
+<main>
     <div class="container">
         <a href="create_entreprise.php" class="Btn_add"> <img src="/Xcelstage/public/image/plus.png"> Ajouter</a>
 
@@ -95,20 +102,16 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
 
         <!-- Pagination -->
         <div class="pagination">
-            <?php if ($page > 1): ?>
-                <a href="?page=1">Première</a>
-                <a href="?page=<?php echo $page - 1; ?>">Précédente</a>
+            <?php if ($pageActuelle > 1): ?>
+                <a href="?page=<?= $pageActuelle - 1 ?>">Précédent</a>
             <?php endif; ?>
 
             <?php for ($i = 1; $i <= $totalPages; $i++): ?>
-                <a href="?page=<?php echo $i; ?>" class="<?= $i === $page ? 'active' : ''; ?>">
-                    <?php echo $i; ?>
-                </a>
+                <a href="?page=<?= $i ?>" <?= ($i === $pageActuelle) ? 'style="font-weight:bold;"' : '' ?>><?= $i ?></a>
             <?php endfor; ?>
 
-            <?php if ($page < $totalPages): ?>
-                <a href="?page=<?php echo $page + 1; ?>">Suivante</a>
-                <a href="?page=<?php echo $totalPages; ?>">Dernière</a>
+            <?php if ($pageActuelle < $totalPages): ?>
+                <a href="?page=<?= $pageActuelle + 1 ?>">Suivant</a>
             <?php endif; ?>
         </div>
     </div>
@@ -125,5 +128,8 @@ if ($_SESSION['Role'] != 'Administrateur' && ($_SESSION['Role'] != 'Pilote')) {
             }
         }
     </script>
+
+    </main>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

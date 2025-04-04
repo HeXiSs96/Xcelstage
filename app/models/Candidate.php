@@ -20,7 +20,7 @@ class Candidate {
     }
 
     public function getNombreCandidaturesbyOffre($ID_Offre) {
-        $requete = $this->pdo->prepare("SELECT COUNT(*) as total FROM Candidatures WHERE ID_Offre = ?");
+        $requete = $this->pdo->prepare("SELECT COUNT(*) as total FROM Candidate WHERE ID_Offre = ?");
         $requete->execute([$ID_Offre]);
         $result = $requete->fetch(PDO::FETCH_ASSOC);
         return $result ? (int) $result['total'] : 0;

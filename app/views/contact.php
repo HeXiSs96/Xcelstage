@@ -29,39 +29,48 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <link rel="icon" type="image/png" href="/Xcelstage/public/image/logo-png.png">
   </head>
   <body>
-    <form method="POST" action="">
-      <h1>Contactez-nous</h1>
-      <div class="separation"></div>
-      <div class="corps-formulaire">
-        <div class="gauche">
-          <div class="groupe">
-            <label for="prenom">Votre Prénom</label>
-            <input type="text" name="prenom" id="prenom" autocomplete="off" required />
-            <i class="fas fa-user"></i>
+
+    <?php include 'header.php'; ?>
+
+    <main>
+      <form method="POST" action="">
+        <h1>Contactez-nous</h1>
+        <div class="separation"></div>
+        <div class="corps-formulaire">
+          <div class="gauche">
+            <div class="groupe">
+              <label for="prenom">Votre Prénom</label>
+              <input type="text" name="prenom" id="prenom" autocomplete="off" required />
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="groupe">
+              <label for="email">Votre adresse e-mail</label>
+              <input type="email" name="email" id="email" autocomplete="off" required />
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="groupe">
+              <label for="telephone">Votre téléphone</label>
+              <input type="text" name="telephone" id="telephone" autocomplete="off" required />
+              <i class="fas fa-mobile"></i>
+            </div>
           </div>
-          <div class="groupe">
-            <label for="email">Votre adresse e-mail</label>
-            <input type="email" name="email" id="email" autocomplete="off" required />
-            <i class="fas fa-envelope"></i>
-          </div>
-          <div class="groupe">
-            <label for="telephone">Votre téléphone</label>
-            <input type="text" name="telephone" id="telephone" autocomplete="off" required />
-            <i class="fas fa-mobile"></i>
+
+          <div class="droite">
+            <div class="groupe">
+              <label for="message">Message</label>
+              <textarea name="message" id="message" placeholder="Saisissez ici..." required></textarea>
+            </div>
           </div>
         </div>
 
-        <div class="droite">
-          <div class="groupe">
-            <label for="message">Message</label>
-            <textarea name="message" id="message" placeholder="Saisissez ici..." required></textarea>
-          </div>
+        <div class="pied-formulaire" align="center">
+          <button type="submit">Envoyer le message</button>
         </div>
-      </div>
+      </form>
+    </main>
 
-      <div class="pied-formulaire" align="center">
-        <button type="submit">Envoyer le message</button>
-      </div>
-    </form>
+    <?php include 'footer.php'; ?>
+
   </body>
 </html>
+

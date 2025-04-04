@@ -5,6 +5,7 @@
     <title>Postuler à une offre</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Xcelstage/public/CSS/postuler.css">
+    <link rel="icon" type="image/png" href="/Xcelstage/public/image/logo-png.png">
 </head>
 <body>
 

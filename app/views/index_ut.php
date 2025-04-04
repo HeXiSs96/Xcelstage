@@ -39,6 +39,8 @@ $utilisateurs = $utilisateurs->fetchAll(PDO::FETCH_ASSOC);
     <link rel="stylesheet" href="/Xcelstage/public/CSS/style_ut.css">
 </head>
 <body>
+<?php include 'header.php'; ?>
+<main>
     <div class="container">
         <a href="create_ut.php" class="Btn_add"> <img src="/Xcelstage/public/image/plus.png"> Ajouter</a>
         
@@ -98,5 +100,7 @@ $utilisateurs = $utilisateurs->fetchAll(PDO::FETCH_ASSOC);
             }
         }
     </script>
+    </main>
+    <?php include 'footer.php'; ?>
 </body>
 </html>

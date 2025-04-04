@@ -18,6 +18,11 @@ class Offre {
         return $requete->execute([$ID_Offre]);
     }
 
+    public function supprimerOffreE($ID_Entreprise){
+        $requete = $this->pdo->prepare("DELETE FROM Offres WHERE ID_Entreprise = ?");
+        return $requete->execute([$ID_Entreprise]);
+    }
+
     public function getAllOffres(){
         $requete = $this->pdo->prepare("SELECT * FROM Offres");
         $requete->execute();

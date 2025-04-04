@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes candidatures</title>
     <link rel="stylesheet" href="/Xcelstage/public/CSS/candidatures.css">
+    <link rel="icon" type="image/png" href="/Xcelstage/public/image/logo-png.png">
 </head>
 <body>
     <?php include 'header.php'; ?>

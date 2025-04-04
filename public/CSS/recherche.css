@@ -1,0 +1,149 @@
+/* Global Styles */
+body {
+    font-family: 'Lato', sans-serif;
+    background-image: url('../assets/images/background.jpg'); /* Ton image de fond */
+    background-size: cover;
+    background-position: center;
+    color: #F8FAFC; /* Blanc cassé pour le texte */
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.6); /* Fond semi-transparent pour le texte */
+    border-radius: 10px;
+    margin-top: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    color: #F8FAFC;
+    text-align: center;
+}
+
+.search-form {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.search-form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+    background-color: #eee;
+    color: #333;
+}
+
+.search-form button {
+    padding: 10px 20px;
+    background-color: #3B82F6; /* Bleu acier */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.search-form button:hover {
+    background-color: #1E293B; /* Bleu nuit */
+}
+
+/* Liens de navigation */
+.nav-link {
+    text-decoration: none;
+    font-size: 18px;
+    background: #f0f0f0;
+    padding: 8px 12px;
+    border-radius: 8px;
+    display: inline-block;
+    color: #800080;
+    margin-right: 10px;
+}
+
+.nav-link:hover {
+    background: #3B82F6;
+    color: #fff;
+}
+
+.offre-card {
+    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc semi-transparent */
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.offre-card h2 {
+    color: #047857; /* Vert foncé pour les titres */
+}
+
+.offre-card h3 {
+    color: #3B82F6; /* Bleu acier pour le nom de l'entreprise */
+}
+
+.offre-card p {
+    color: #333;
+}
+
+.wishlist-btn {
+    font-size: 22px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #800080;
+}
+
+.wishlist-btn:hover {
+    color: #3B82F6; /* Changer la couleur au survol */
+}
+
+.btn-postuler {
+    padding: 10px 20px;
+    background-color: #047857; /* Vert foncé */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-postuler:hover {
+    background-color: #3B82F6; /* Bleu acier au survol */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    main {
+        padding: 15px;
+    }
+
+    .search-form {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .offre-card {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .search-form input, .search-form button {
+        width: 100%;
+    }
+
+    .offre-card {
+        padding: 10px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+        padding: 6px 10px;
+    }
+}
